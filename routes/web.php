@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\RestaurantController as RestaurantController;
 
+use App\Http\Controllers\Admin\ProductController as ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +28,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // RESTAURANTS RESOURCE
     Route::resource('restaurants', RestaurantController::class);
+
+    // PRODUCTS RESOURCE
+    Route::resource('products', ProductController::class);
 
     // OBJECTS EDIT: DELETE-COVER-IMAGE
     // Route::get('/objects/{object}/edit/delete-cover-image', [ObjectController::class, 'deleteCoverImage'])->name('objects.edit.delete-cover-image');

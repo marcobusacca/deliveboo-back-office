@@ -13,13 +13,29 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             // ID PRIMARY KEY
             $table->id();
+            
+            // RESTAURANT_ID FOREIGN KEY
+            $table->unsignedBigInteger('restaurant_id')->nullable();
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('set null');
 
             // NAME
             $table->string('name');
-            
+
+            // INGREDIENTS
+            $table->string('ingredients');
+
+            // PRICE
+            $table->decimal('price', 6, 2);
+
+            // DESCRIPTION
+            $table->text('description')->nullable();
+
+            // VISIBLE
+            $table->boolean('visible');
+
             // COVER_IMAGE
             $table->string('cover_image')->nullable();
 
@@ -35,6 +51,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('products');
     }
 };
