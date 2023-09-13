@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Type;
 use App\Models\Product;
+use App\Models\Order;
 
 class Restaurant extends Model
 {
@@ -28,5 +29,9 @@ class Restaurant extends Model
 
     public function products() {
         return $this->hasMany(Product::class);
+    }
+
+    public function orders() {
+        return $this->hasMany(Order::class);
     }
 }
