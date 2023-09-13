@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 
 use App\Models\User;
 use App\Models\Type;
+use App\Models\Product;
 
 class Restaurant extends Model
 {
@@ -23,5 +24,9 @@ class Restaurant extends Model
 
     public function types() {
         return $this->belongsToMany(Type::class);
+    }
+
+    public function products() {
+        return $this->hasMany(Product::class);
     }
 }
