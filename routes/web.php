@@ -3,9 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Admin\RestaurantController as RestaurantController;
-
 use App\Http\Controllers\Admin\ProductController as ProductController;
+
+use App\Http\Controllers\Admin\OrderController as OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +26,11 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // ADMIN DASHBOARD
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-    // RESTAURANTS RESOURCE
-    Route::resource('restaurants', RestaurantController::class);
-
     // PRODUCTS RESOURCE
     Route::resource('products', ProductController::class);
+
+    // ORDERS RESOURCE
+    Route::resource('orders', OrderController::class);
 
     // OBJECTS EDIT: DELETE-COVER-IMAGE
     // Route::get('/objects/{object}/edit/delete-cover-image', [ObjectController::class, 'deleteCoverImage'])->name('objects.edit.delete-cover-image');
