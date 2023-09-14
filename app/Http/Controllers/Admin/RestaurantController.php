@@ -95,7 +95,7 @@ class RestaurantController extends Controller
 
         $name = $restaurant->name;
 
-        return redirect()->route('admin.restaurants.index', compact('restaurant'))->with('message', "Ristorante : '$name' Creato Correttamente");
+        return redirect()->route('admin.restaurants.index')->with('message', "Ristorante : '$name' Creato Correttamente");
     }
 
     /**
