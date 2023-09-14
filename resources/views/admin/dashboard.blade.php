@@ -23,8 +23,6 @@
         </div>
         <div class="col-12 text-center my-5">
             <a href="{{ Route('admin.restaurants.index') }}" class="btn btn-primary mx-3">Ristoranti</a>
-            <a href="#" class="btn btn-primary mx-3">Tipologie</a>
-            <a href="#" class="btn btn-primary mx-3">Qualcosa</a>
         </div>
     </div>
 </div>

@@ -15,6 +15,16 @@ class TypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $types = config('types');
+        
+        foreach ($types as $item) {
+
+            $type = new Type();
+
+            $type->name = $item['name'];
+
+            $type->save();
+
+        }
     }
 }
