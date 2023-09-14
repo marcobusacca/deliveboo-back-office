@@ -26,15 +26,23 @@ class StoreRestaurantRequest extends FormRequest
         return [
             'name' => 'required',
             'address' => 'required',
-            'vat' => 'required|max:11'
+            'vat' => 'required|numeric|min:11|max:11',
         ];
     }
 
     public function messages()
     {
         return [
-            // 'type_id.required' => 'Devi selezionare una Tipologia',
-            // 'type_id.exists' => 'Tipologia selezionata non valida',
+            'name.required' => 'Il nome del ristorante è obbligatorio',
+
+            'address.required' => 'L\'indirizzo del ristorante è obbligatorio',
+
+            'vat.required' => 'La Partiva IVA è obbligatoria',
+
+            'vat.numeric' => 'La Partiva IVA deve essere composta solamente da numeri',
+
+            'vat.min' => 'La Partiva IVA deve avere una lunghezza di :min caratteri',
+            'vat.max' => 'La Partiva IVA deve avere una lunghezza di :max caratteri',
         ];
     }
 }

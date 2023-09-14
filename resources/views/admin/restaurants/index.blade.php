@@ -30,7 +30,7 @@
                             <!-- Name Label -->
                             <label class="control-label my-2">Nome:</label>
                             <!-- Name Input Text -->
-                            <input type="text" name="name" id="name" placeholder="Inserisci il nome del ristorante" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" required>
+                            <input type="text" name="name" id="name" placeholder="Inserisci il nome del ristorante" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                             <!-- Name Error Text -->
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
@@ -41,7 +41,7 @@
                             <!-- Address Label -->
                             <label class="control-label my-2">Indirizzo:</label>
                             <!-- Address Input Text -->
-                            <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo del ristorante" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" required>
+                            <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo del ristorante" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}">
                             <!-- Address Error Text -->
                             @error('address')
                                 <div class="text-danger">{{ $message }}</div>
@@ -52,13 +52,13 @@
                             <!-- VAT Label -->
                             <label class="control-label my-2">Partita IVA:</label>
                             <!-- VAT Input Text -->
-                            <input type="text" name="vat" id="vat" placeholder="Inserisci partita IVA" class="form-control @error('vat') is-invalid @enderror" value="{{ old('vat') }}" required>
+                            <input type="text" name="vat" id="vat" placeholder="Inserisci partita IVA" class="form-control @error('vat') is-invalid @enderror" value="{{ old('vat') }}">
                             <!-- VAT Error Text -->
                             @error('vat')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                         <!-- Restaurant Cover Image Form Group -->
+                        <!-- Restaurant Cover Image Form Group -->
                         <div class="form-group my-4">
                             <!-- Cover Image Label -->
                             <label class="control-label my-2">Logo del Ristorante:</label>
