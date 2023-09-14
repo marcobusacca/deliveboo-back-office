@@ -16,30 +16,24 @@ class RestaurantController extends Controller
      */
     public function index()
     {
+        
         // Ottieni l'utente attualmente autenticato
         $user = auth()->user();
 
-        // // Ottieni il ristorante associato all'utente
-        // $restaurant = $user->restaurant;
+        if(isset($user->restaurant)){
 
-        return view('admin.restaurants.index', compact('user'));
+            // Ottieni il ristorante associato all'utente
+            $restaurant = $user->restaurant;
+        }
+        else{
+            
+            $restaurant = [];
+        }
+        
+        
+        return view('admin.restaurants.index', compact('restaurant'));
     }
 
-    // public function search(Request $request){
-    //     $query = Animal::query();
-        
-    //         if(isset($request->search) && ($request->search !=null)){
-
-    //         $query->where('nome', 'LIKE', '%'.$request->search.'%');
-
-    //         $animals = $query->get();
-    //         }
-    //         else{
-    //             $animals = Animal::all();
-    //         }
-
-    //     return view('admin.animals.index', compact('animals'));
-    // }
 
     /**
      * Show the form for creating a new resource.
