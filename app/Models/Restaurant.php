@@ -15,6 +15,15 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id', 
+        'name', 
+        'slug',
+        'address',
+        'vat',
+        'cover_image',
+    ];
+
     public static function generateSlug($name){
         return Str::slug($name, '-');
     }

@@ -27,4 +27,12 @@ class StoreRestaurantRequest extends FormRequest
             //
         ];
     }
+
+    public function messages()
+    {
+        return [
+            // 'type_id.required' => 'Devi selezionare una Tipologia',
+            // 'type_id.exists' => 'Tipologia selezionata non valida',
+        ];
+    }
 }
