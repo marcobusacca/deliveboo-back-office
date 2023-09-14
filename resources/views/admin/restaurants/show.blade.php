@@ -3,6 +3,7 @@
 @section('content')
     <div class="container py-5">
         <div class="row">
+            <!-- Link To Restaurants List -->
             <div class="col-12 my-4">
                 <a href="{{ route('admin.restaurants.index') }}" class="btn btn-dark rounded-5 mx-3">
                     <i class="fa-solid fa-arrow-left"></i>
@@ -18,7 +19,7 @@
             @endif
             <!-- Card User Restaurant -->
             <div class="col-12 d-flex justify-content-center align-items-center">
-                <div class="card">
+                <div class="card" style="width: 35rem">
                     <!-- Restaurant Cover Image -->
                     <div class="card-header">
                         @if (empty($restaurant->cover_image))

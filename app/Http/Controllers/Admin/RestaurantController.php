@@ -106,7 +106,7 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.edit', compact('restaurant'));
     }
 
     /**
@@ -118,7 +118,31 @@ class RestaurantController extends Controller
      */
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
+        $form_data = $request->all();
+
+        // GESTIONE UPLOAD DEI FILE (COVER_IMAGE)
+
+            if($request->hasFile('cover_image')){
+
+                if($restaurant->cover_image){
+
+                    Storage::delete($restaurant->cover_image);
+                }
+                
+                $img_path = Storage::put('restaurants_images', $request->cover_image);
+                
+                $form_data['cover_image'] = $img_path;
+            }
+
         //
+
+        $form_data['slug'] = $restaurant->generateSlug($form_data['name']);
+
+        $name = $restaurant->name;
+
+        $restaurant->update($form_data);
+
+        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Ristorante : '$name' Modificato Correttamente");
     }
 
     /**

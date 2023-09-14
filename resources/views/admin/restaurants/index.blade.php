@@ -50,7 +50,7 @@
                         <!-- Restaurant Name Form Group -->
                         <div class="form-group my-4">
                             <!-- Name Label -->
-                            <label class="control-label my-2">Nome:</label>
+                            <label class="control-label my-2">Nome ristorante:</label>
                             <!-- Name Input Text -->
                             <input type="text" name="name" id="name" placeholder="Inserisci il nome del ristorante" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
                             <!-- Name Error Text -->
@@ -61,7 +61,7 @@
                         <!-- Restaurant Address Form Group -->
                         <div class="form-group my-4">
                             <!-- Address Label -->
-                            <label class="control-label my-2">Indirizzo:</label>
+                            <label class="control-label my-2">Indirizzo ristorante:</label>
                             <!-- Address Input Text -->
                             <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo del ristorante" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}">
                             <!-- Address Error Text -->
