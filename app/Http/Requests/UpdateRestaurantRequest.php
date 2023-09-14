@@ -26,7 +26,7 @@ class UpdateRestaurantRequest extends FormRequest
         return [
             'name' => 'required',
             'address' => 'required',
-            'vat' => 'required|numeric|min:11|max:11',
+            'vat' => 'required|numeric|regex:/^\d{11}$/',
         ];
     }
 
@@ -41,8 +41,7 @@ class UpdateRestaurantRequest extends FormRequest
 
             'vat.numeric' => 'La Partiva IVA deve essere composta solamente da numeri',
 
-            'vat.min' => 'La Partiva IVA deve avere una lunghezza di :min caratteri',
-            'vat.max' => 'La Partiva IVA deve avere una lunghezza di :max caratteri',
+            'vat.regex' => 'La Partiva IVA deve avere una lunghezza di 11 caratteri',
         ];
     }
 }
