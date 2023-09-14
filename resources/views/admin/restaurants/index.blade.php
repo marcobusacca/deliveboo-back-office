@@ -13,8 +13,38 @@
             @endif
             @if (!empty($restaurant))
                 <!-- Card User Restaurant -->
-                <div class="col-12">
-                    <h1>utente con ristorante</h1>
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <div class="card" style="width: 35rem">
+                        <!-- Restaurant Cover Image -->
+                        <div class="card-header">
+                            @if (empty($restaurant->cover_image))
+                                <!-- Place-Holder Image -->
+                                <img class="card-img-top" src="{{ Vite::asset('resources/img/placeholder-image.jpg') }}" alt="{{ $restaurant->slug }}-place-holder-image">
+                            @else
+                                <!-- Cover Image -->
+                                <img class="card-img-top" src="{{ asset('storage/'.$restaurant->cover_image) }}" alt="{{ $restaurant->slug }}-cover-image">
+                            @endif
+                        </div>
+                        <!-- Restaurant Details -->
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">{{ $restaurant->name }}</h3>
+                            <div>
+                                <i class="fas fa-map"></i>
+                                <span class="card-subtitle mb-3 mx-1">{{ $restaurant->address }}</span>
+                            </div>
+                        </div>
+                        <!-- Restaurant Actions -->
+                        <div class="card-footer text-center">
+                            <!-- Restaurant Show Button -->
+                            <a href="{{ route('admin.restaurants.show', $restaurant) }}" class="btn btn-info mx-1">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <!-- Restaurant Edit Button -->
+                            <a href="{{ route('admin.restaurants.edit', $restaurant) }}" class="btn btn-warning mx-1">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             @else
                 <!-- User Insert Restaurant Title -->
