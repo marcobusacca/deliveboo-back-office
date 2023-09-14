@@ -44,7 +44,7 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -95,7 +95,7 @@ class RestaurantController extends Controller
 
         $name = $restaurant->name;
 
-        return redirect()->route('admin.restaurants.index')->with('message', "Ristorante : '$name' Creato Correttamente");
+        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Ristorante : '$name' Creato Correttamente");
     }
 
     /**
