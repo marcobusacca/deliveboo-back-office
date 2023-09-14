@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('address');
 
             // VAT
-            $table->string('vat', 11);
+            $table->string('vat', 11)->unique();
 
             // COVER_IMAGE
             $table->string('cover_image')->nullable();

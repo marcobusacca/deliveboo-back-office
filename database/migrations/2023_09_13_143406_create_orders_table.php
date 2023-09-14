@@ -28,10 +28,10 @@ return new class extends Migration
             $table->string('surname');
 
             // PHONE_NUMBER
-            $table->string('phone_number', 15)->unique();
+            $table->string('phone_number', 15);
 
             // EMAIL
-            $table->string('email')->unique();
+            $table->string('email');
 
             // ADDRESS
             $table->string('address');

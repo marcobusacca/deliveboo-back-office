@@ -25,6 +25,8 @@ class StoreRestaurantRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'address' => 'required',
+            'vat' => 'required|max:11'
         ];
     }
 
