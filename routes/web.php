@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
+
+use App\Http\Controllers\Admin\RestaurantController as RestaurantController;
+
 use App\Http\Controllers\Admin\ProductController as ProductController;
 use App\Http\Controllers\Admin\OrderController as OrderController;
 
@@ -25,6 +28,9 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     // ADMIN DASHBOARD
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    // RESTAURANTS RESOURCE
+    Route::resource('restaurants', RestaurantController::class);
 
     // PRODUCTS RESOURCE
     Route::resource('products', ProductController::class);
