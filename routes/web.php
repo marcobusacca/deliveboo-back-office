@@ -3,8 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\ProductController as ProductController;
-
 use App\Http\Controllers\Admin\OrderController as OrderController;
 
 /*

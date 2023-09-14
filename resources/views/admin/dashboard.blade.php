@@ -22,9 +22,10 @@
             </div>
         </div>
         <div class="col-12 text-center my-5">
-            <a href="{{ Route('admin.projects.index') }}" class="btn btn-primary mx-3">Progetti</a>
-            <a href="{{ Route('admin.types.index') }}" class="btn btn-primary mx-3">Tipologie</a>
-            <a href="{{ Route('admin.technologies.index') }}" class="btn btn-primary mx-3">Tecnologie</a>
+            {{-- {{ Route('') }} --}}
+            <a href="#" class="btn btn-primary mx-3">Ristoranti</a>
+            <a href="#" class="btn btn-primary mx-3">Tipologie</a>
+            <a href="#" class="btn btn-primary mx-3">Qualcosa</a>
         </div>
     </div>
 </div>
