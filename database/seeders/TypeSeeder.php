@@ -23,6 +23,8 @@ class TypeSeeder extends Seeder
 
             $type->name = $item['name'];
 
+            $type->cover_image = $item['cover_image'];
+
             $type->save();
 
         }
