@@ -58,9 +58,9 @@
                                 <!-- Current Cover Image Label -->
                                 <label class="d-block my-3 control-label">Copertina Attuale:</label>
                                 <!-- Current Cover Image -->
-                                <img src="{{ asset('storage/'.$restaurant->cover_image) }}" alt="{{ $restaurant->slug }}-cover-image" class="img-fluid w-25 border border-3 my-3">
+                                <img src="{{ asset('storage/'.$restaurant->cover_image) }}" alt="{{ $restaurant->slug }}-cover-image" class="d-block img-fluid w-25 border border-3 my-3">
                                 <!-- Current Cover Image Delete Button -->
-                                {{-- <a href="{{ route('admin.restaurants.edit.delete-cover-image', $project) }}" class="btn btn-danger my-3">Cancella Copertina</a> --}}
+                                <a href="{{ route('admin.restaurants.edit.delete-cover-image', $restaurant) }}" class="btn btn-danger my-5">Cancella Copertina</a>
                             </div>
                         @endif
                         <div class="my-5">

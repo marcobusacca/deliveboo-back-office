@@ -39,7 +39,7 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::resource('orders', OrderController::class);
 
     // OBJECTS EDIT: DELETE-COVER-IMAGE
-    // Route::get('/objects/{object}/edit/delete-cover-image', [ObjectController::class, 'deleteCoverImage'])->name('objects.edit.delete-cover-image');
+    Route::get('/restaurants/{restaurant}/edit/delete-cover-image', [RestaurantController::class, 'deleteCoverImage'])->name('restaurants.edit.delete-cover-image');
 });
 
 

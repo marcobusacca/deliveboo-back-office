@@ -155,4 +155,18 @@ class RestaurantController extends Controller
     {
         //
     }
+
+    public function deleteCoverImage(Restaurant $restaurant)
+    {
+        if($restaurant->cover_image){
+
+            Storage::delete($restaurant->cover_image);
+
+            $restaurant->cover_image = NULL;
+
+            $restaurant->update();
+        }
+        
+        return redirect()->route('admin.restaurants.edit', compact('restaurant'));
+    }
 }
