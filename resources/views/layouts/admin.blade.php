@@ -16,7 +16,6 @@
 
     <body>
         <div id="app">
-
             <nav class="top-bar navbar navbar-expand-md navbar-light shadow-sm">
                 <div class="container">
                     <div class="row w-100">
@@ -28,16 +27,12 @@
                                     </a>
                                 </li>
                             </ul>
-
                         </div>
                         <div class="col-6">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse d-flex justify-content-end align-items-center h-100 w-100" id="navbarSupportedContent">
-                                <!-- Left Side Of Navbar -->
-            
-                                <!-- Right Side Of Navbar -->
                                 <ul class="navbar-nav ml-auto">
                                     <!-- Authentication Links -->
                                     @guest
@@ -74,24 +69,31 @@
                     </div>
                 </div>
             </nav>
-
             <div class="d-flex">
                 <div class="sidebar">
                     <!-- Sidebar -->
                     <nav id="sidebarMenu" class="d-lg-block sidebar">
                         <div class="position-sticky">
                             <div class="list-group list-group-flush mt-4 rounded">
-                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
-                                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+                                <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
+                                    <i class="fas fa-tachometer-alt fa-fw me-3"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                                <a href="{{ route('admin.restaurants.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span>Il tuo ristorante</span>
+                                </a>
+                                <a href="{{ route('admin.products.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span>Il tuo menù</span>
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo ristorante</span>
+                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span>I tuoi ordini</span>
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo menù</span>
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Statistiche ordini</span>
+                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span>Statistiche ordini</span>
                                 </a>
                             </div>
                         </div>
