@@ -41,6 +41,24 @@
                             <i class="fa-solid fa-circle-info"></i>
                             <span class="mx-1">{{ $restaurant->vat }}</span>
                         </div>
+                        <!-- Restaurant Types -->
+                        <div class="mb-3">
+                            @if (count($restaurant->types) != 0)
+                                <!-- Types Label -->
+                                <label class="fw-bold">Tipologia:</label>
+                                <!-- List of Types -->
+                                @foreach ($restaurant->types as $index => $type)
+                                    @if ($index != count($restaurant->types) - 1)
+                                        <!-- Type Name -->
+                                        <span>{{ $type->name }}</span>
+                                        <span> • </span>
+                                    @else
+                                        <!-- Type Name -->
+                                        <span>{{ $type->name }}</span>
+                                    @endif
+                                @endforeach
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

@@ -51,6 +51,28 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <!-- Restaurant Types Form Group -->
+                    <div class="form-group my-4">
+                        <!-- Restaurant Types Label -->
+                        <span>Seleziona le Tecnologie:</span>
+                        @foreach ($types as $type)
+                            <div class="my-2">
+                                @if ($errors->any())
+                                    <!-- Types Input CheckBox -->
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}" {{ in_array($type->id, old('types', [])) ? 'checked' : ''}} class="form-check-input @error('types') is-invalid @enderror">
+                                @else
+                                    <!-- Types Input CheckBox -->
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}" {{ $restaurant->types->contains($type) ? 'checked' : ''}} class="form-check-input @error('types') is-invalid @enderror">
+                                @endif
+                                <!-- Types Label -->
+                                <label class="form-check-label">{{ $type->name }}</label>
+                            </div>
+                        @endforeach
+                        <!-- Types Error Text -->
+                        @error('types')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <!-- Project Cover Image Form Group -->
                     <div class="form-group my-4">
                         @if (!empty($restaurant->cover_image))

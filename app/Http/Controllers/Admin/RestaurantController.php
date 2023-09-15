@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\Type;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +18,6 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        
         // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
         $user = auth()->user();
 
@@ -32,8 +32,11 @@ class RestaurantController extends Controller
             // LA VARIABILE "RESTAURANT" è UN ARRAY VUOTO
             $restaurant = [];
         }
+
+        // IMPORTO TUTTE LE TIPOLOGIE
+        $types = Type::all();
         
-        return view('admin.restaurants.index', compact('restaurant'));
+        return view('admin.restaurants.index', compact('restaurant', 'types'));
     }
 
     /**
@@ -85,13 +88,22 @@ class RestaurantController extends Controller
 
             $form_data['user_id'] = $user->id;
 
-        // FINE GESTIONE RELAZIONE ONE-TO-ONE
+        //
 
         $form_data['slug'] = $restaurant->generateSlug($form_data['name']);
 
         $restaurant->fill($form_data);
 
         $restaurant->save();
+
+        // GESTIONE RELAZIONE MANY-TO-MANY (RESTAURANTS - TYPES)
+
+            if ($request->has('types')){
+                
+                $restaurant->types()->attach($request->types);
+            }
+
+        //
 
         $name = $restaurant->name;
 
@@ -106,7 +118,10 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        return view('admin.restaurants.edit', compact('restaurant'));
+        // IMPORTO TUTTE LE TIPOLOGIE
+        $types = Type::all();
+
+        return view('admin.restaurants.edit', compact('restaurant', 'types'));
     }
 
     /**
@@ -141,6 +156,15 @@ class RestaurantController extends Controller
         $name = $restaurant->name;
 
         $restaurant->update($form_data);
+
+        // GESTIONE RELAZIONE MANY-TO-MANY (RESTAURANTS - TYPES)
+
+            if ($request->has('types')){
+                    
+                $restaurant->types()->sync($request->types);
+            }
+
+        //
 
         return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Ristorante : '$name' Modificato Correttamente");
     }

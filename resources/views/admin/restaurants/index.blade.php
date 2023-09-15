@@ -80,6 +80,23 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <!-- Restaurant Types Form Group -->
+                        <div class="form-group my-4">
+                            <!-- Restaurant Types Label -->
+                            <span>Seleziona le Tipologie:</span>
+                            @foreach ($types as $type)
+                                <div class="my-2">
+                                    <!-- Types Input CheckBox -->
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}" {{ in_array($type->id, old('types', [])) ? 'checked' : ''}} class="form-check-input @error('types') is-invalid @enderror">
+                                    <!-- Types Label -->
+                                    <label class="form-check-label">{{ $type->name }}</label>
+                                </div>
+                            @endforeach
+                            <!-- Types Error Text -->
+                            @error('types')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <!-- Restaurant Cover Image Form Group -->
                         <div class="form-group my-4">
                             <!-- Cover Image Label -->
