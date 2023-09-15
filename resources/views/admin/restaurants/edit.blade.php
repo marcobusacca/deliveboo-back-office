@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-    <div class="container py-5">
+    <div class="container bg-white">
         <div class="row">
             <!-- Link To Restaurants List -->
             <div class="col-12 my-4">
