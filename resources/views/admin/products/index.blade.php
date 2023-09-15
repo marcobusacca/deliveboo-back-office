@@ -39,7 +39,7 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <!-- Product Delete Button -->
-                                    <form class="product-delete-button d-inline-block mx-1" data-product-name="{{ $product->name }}" action="{{ route('admin.products.destroy', $project) }}" method="POST">
+                                    <form class="product-delete-button d-inline-block mx-1" data-product-name="{{ $product->name }}" action="{{ route('admin.products.destroy', $product) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">

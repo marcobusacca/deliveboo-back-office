@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -31,7 +32,7 @@ class ProductController extends Controller
             return redirect()->route('admin.restaurants.index');
         }
 
-        $products = Product::where('restaurant_id', $restaurant_id);
+        $products = Product::where('restaurant_id', $restaurant_id)->get();
 
         return view('admin.products.index', compact('products'));
     }
