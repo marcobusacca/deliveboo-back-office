@@ -16,7 +16,23 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // CONTROLLO SE L'UTENTE HA UN RISTORANTE
+        if(isset($user->restaurant)){
+
+            // OTTENGO L'ID DEL RISTORANTE ASSOCIATO ALL'UTENTE
+            $restaurant_id = $user->restaurant->id;
+            
+        }
+        else{ // L'UTENTE NON HA UN RISTORANTE
+            
+            // REDIRECTO L'UTENTE ALLA CREATE DEL RISTORANTE
+            return redirect()->route('admin.restaurants.index');
+        }
+
+        $products = Product::where('restaurant_id', $restaurant_id);
 
         return view('admin.products.index', compact('products'));
     }
