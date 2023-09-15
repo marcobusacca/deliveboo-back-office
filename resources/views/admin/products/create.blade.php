@@ -38,7 +38,7 @@
                         <!-- Price Label -->
                         <label class="control-label my-2">Prezzo:</label>
                         <!-- Price Input Text -->
-                        <input type="number" name="price" id="price" placeholder="Inserisci il prezzo" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
+                        <input type="number" step="any" name="price" id="price" placeholder="Inserisci il prezzo" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
                         <!-- Price Error Text -->
                         @error('price')
                             <div class="text-danger">{{ $message }}</div>

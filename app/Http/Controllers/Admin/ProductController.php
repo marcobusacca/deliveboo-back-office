@@ -31,7 +31,7 @@ class ProductController extends Controller
             return redirect()->route('admin.restaurants.index');
         }
 
-        $products = Product::where('restaurant_id', $restaurant_id);
+        $products = Product::where('restaurant_id', $restaurant_id)->get();
 
         return view('admin.products.index', compact('products'));
     }
