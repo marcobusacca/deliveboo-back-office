@@ -9,12 +9,12 @@
                     <div class="card" style="width: 35rem">
                         <!-- Restaurant Cover Image -->
                         <div class="card-header">
-                            @if (empty($restaurant->cover_image))
-                                <!-- Place-Holder Image -->
-                                <img class="card-img-top rounded-5" src="{{ Vite::asset('resources/img/placeholder-image.jpg') }}" alt="{{ $restaurant->slug }}-place-holder-image">
-                            @else
+                            @if (!empty($restaurant->cover_image))
                                 <!-- Cover Image -->
                                 <img class="card-img-top rounded-5" src="{{ asset('storage/'.$restaurant->cover_image) }}" alt="{{ $restaurant->slug }}-cover-image">
+                            @else
+                                <!-- Place-Holder Image -->
+                                <img class="card-img-top rounded-5" src="{{ Vite::asset('resources/img/placeholder-image.jpg') }}" alt="{{ $restaurant->slug }}-place-holder-image">
                             @endif
                         </div>
                         <!-- Restaurant Details -->
