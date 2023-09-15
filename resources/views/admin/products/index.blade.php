@@ -60,4 +60,5 @@
             </div>
         </div>
     </div>
+    @include('admin.partials.modal_product_delete');
 @endsection
