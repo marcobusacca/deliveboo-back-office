@@ -9,8 +9,8 @@
                     <h1>Inserisci il tuo Ristorante</h1>
                 </div>
                 <!-- User Insert Restaurant Form -->
-                <div class="col-12 my-5">
-                    <form action="{{ route('admin.restaurants.store') }}" method="POST" class="border p-3 w-100" enctype="multipart/form-data">
+                <div class="col-12 my-3 d-flex justify-content-center">
+                    <form action="{{ route('admin.restaurants.store') }}" method="POST" class="form-container p-3 w-100" enctype="multipart/form-data">
                         @csrf
                         <!-- Restaurant Name Form Group -->
                         <div class="form-group my-4">
