@@ -72,7 +72,7 @@
             </nav>
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-3 color">
+                    <div class="col-3">
                         <!-- Sidebar -->
                         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
                             <div class="position-sticky">
@@ -94,7 +94,7 @@
                         </nav>
                     </div>
                     <div class="col-9 p-4">
-                        <main class="">
+                        <main>
                             @yield('content')
                         </main>
                     </div>
