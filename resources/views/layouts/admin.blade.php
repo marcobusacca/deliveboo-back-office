@@ -20,19 +20,19 @@
 
             <nav class="navbar navbar-expand-md navbar-light shadow-sm">
                 <div class="container">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/') }}">
+                                <img class="logo-deliveboo" src="{{ Vite::asset('resources/img/deliveboo-1.png') }}" alt="">
+                            </a>
+                        </li>
+                    </ul>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
                     </button>
     
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{url('/') }}">
-                                    <img class="logo-deliveboo" src="{{ Vite::asset('resources/img/deliveboo-1.png') }}" alt="">
-                                </a>
-                            </li>
-                        </ul>
     
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
@@ -43,7 +43,7 @@
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">Registrati</a>
                             </li>
                             @endif
                             @else
@@ -70,36 +70,41 @@
                     </div>
                 </div>
             </nav>
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-3">
-                        <!-- Sidebar -->
-                        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse">
-                            <div class="position-sticky">
-                                <div class="list-group list-group-flush mt-4 rounded">
-                                    <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
-                                        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo ristorante</span>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo menù</span>
-                                    </a>
-                                    <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                        <i class="fas fa-chart-area fa-fw me-3"></i><span>Statistiche ordini</span>
-                                    </a>
-                                </div>
+
+            <div class="d-flex">
+                <div class="sidebar">
+                    <!-- Sidebar -->
+                    <nav id="sidebarMenu" class="d-lg-block sidebar">
+                        <div class="position-sticky">
+                            <div class="list-group list-group-flush mt-4 rounded">
+                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
+                                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo ristorante</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo menù</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Statistiche ordini</span>
+                                </a>
                             </div>
-                        </nav>
-                    </div>
-                    <div class="col-9 p-4">
-                        <main>
-                            @yield('content')
-                        </main>
-                    </div>
+                        </div>
+                    </nav>
                 </div>
+
+                <div class="container-fluid">
+                    <main>
+                        @yield('content')
+                    </main>
+
+                </div>
+
             </div>
+            
+
+
         </div>
     </body>
 

@@ -6,9 +6,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="text-center p-3">
-                    <h1 class="fw-bold mb-3">Benvenuto nella tua pagina personale Deliveboo</h1>
-                    <h4 class="fw-bold mb-3">Unisciti alla comunity di Deliveboo</h4>
-                    <p class="fw-bold">Insieme possiamo aiutarti a raggiungere sempre più clienti</p>
+                    <h1 class="mb-3">Benvenuto nella tua pagina personale Deliveboo</h1>
+                    <h4 class="mb-3">Unisciti alla comunity di Deliveboo</h4>
+                    <p class="">Insieme possiamo aiutarti a raggiungere sempre più clienti</p>
                 </div>
             </div>
         </div>
