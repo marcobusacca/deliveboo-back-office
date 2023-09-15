@@ -158,6 +158,7 @@ class ProductController extends Controller
             }
 
         //
+        
         $name = $product->name;
 
         $product->delete();
