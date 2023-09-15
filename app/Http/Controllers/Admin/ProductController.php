@@ -149,6 +149,17 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        // GESTIONE CANCELLAZIONE DEI FILE (COVER_IMAGE)
+
+            if($product->cover_image){
+
+                Storage::delete($product->cover_image);
+            }
+
         //
+        
+        $product->delete();
+
+        return redirect()->route('admin.products.index')->with('message', "Prodotto : '$project->title' Cancellato Correttamente");
     }
 }
