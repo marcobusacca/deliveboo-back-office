@@ -54,7 +54,7 @@
                     <!-- Restaurant Types Form Group -->
                     <div class="form-group my-4">
                         <!-- Restaurant Types Label -->
-                        <span>Seleziona le tipologie del tuo ristorante:</span>
+                        <span>Modifica le tipologie del tuo ristorante:</span>
                         @foreach ($types as $type)
                             <div class="my-2">
                                 @if ($errors->any())
