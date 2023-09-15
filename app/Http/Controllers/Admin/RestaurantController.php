@@ -79,16 +79,16 @@ class RestaurantController extends Controller
                 $form_data['cover_image'] = $img_path;
             }
         //
+        
+        // GESTIONE RELAZIONE ONE-TO-ONE (USERS - RESTAURANTS)
+        
+            $user = auth()->user();
+            
+            $form_data['user_id'] = $user->id;
+        
+        //
 
         $restaurant = new Restaurant();
-
-        // GESTIONE RELAZIONE ONE-TO-ONE (USERS - RESTAURANTS)
-
-            $user = auth()->user();
-
-            $form_data['user_id'] = $user->id;
-
-        //
 
         $form_data['slug'] = $restaurant->generateSlug($form_data['name']);
 

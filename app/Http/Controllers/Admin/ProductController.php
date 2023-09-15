@@ -24,7 +24,6 @@ class ProductController extends Controller
 
             // OTTENGO L'ID DEL RISTORANTE ASSOCIATO ALL'UTENTE
             $restaurant_id = $user->restaurant->id;
-            
         }
         else{ // L'UTENTE NON HA UN RISTORANTE
             
@@ -66,7 +65,35 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
+        $form_data = $request->all();
+
+        // GESTIONE UPLOAD DEI FILE (COVER_IMAGE)
+
+            if($request->hasFile('cover_image')){
+                    
+                $img_path = Storage::put('products_images', $request->cover_image);
+                
+                $form_data['cover_image'] = $img_path;
+            }
         //
+
+        // GESTIONE RELAZIONE ONE-TO-MANY (RESTAURANTS - PRODUCTS)
+        
+            $user = auth()->user();
+            
+            $form_data['restaurant_id'] = $user->restaurant->id;
+        
+        //
+
+        $product = new Product();
+
+        $product->fill($form_data);
+
+        $product->save();
+
+        $name = $product->name;
+
+        return redirect()->route('admin.products.show', compact('product'))->with('message', "Prodotto : '$product' Aggiunto Correttamente");
     }
 
     /**
