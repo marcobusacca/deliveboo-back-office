@@ -22,19 +22,19 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="text-center">
                     <i class="fa-solid fa-circle-info fa-xl mb-4"></i>
-                    <p>Aggiornare le informazioni del tuo ristorante</p>
+                    <p>Gestire il tuo ristorante e i tuoi prodotti</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="text-center">
                     <i class="fa-solid fa-receipt fa-2xl mb-4"></i>
-                    <p>Gestire le ordinazioni in maniera efficiente</p>
+                    <p>Controllare le ordinazioni in maniera efficiente</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="text-center">
                     <i class="fa-solid fa-ranking-star fa-2xl mb-4"></i>
-                    <p>Controllare le statistiche dei tuoi prodotti</p>
+                    <p>Visionare le statistiche dei tuoi ordini</p>
                 </div>
             </div>
             <div class="text-center">
