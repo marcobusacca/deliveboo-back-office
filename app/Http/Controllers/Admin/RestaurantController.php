@@ -29,14 +29,11 @@ class RestaurantController extends Controller
         }
         else{ // L'UTENTE NON HA UN RISTORANTE
             
-            // LA VARIABILE "RESTAURANT" è UN ARRAY VUOTO
-            $restaurant = [];
+            // REDIRECTO L'UTENTE ALLA CREATE
+            return redirect()->route('admin.restaurants.create');
         }
-
-        // IMPORTO TUTTE LE TIPOLOGIE
-        $types = Type::all();
         
-        return view('admin.restaurants.index', compact('restaurant', 'types'));
+        return view('admin.restaurants.index', compact('restaurant'));
     }
 
     /**
@@ -57,7 +54,25 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // CONTROLLO SE L'UTENTE NON HA UN RISTORANTE
+        if(!isset($user->restaurant)){
+
+            // LA VARIABILE "RESTAURANT" è UN ARRAY VUOTO
+            $restaurant = [];
+        }
+        else{ // L'UTENTE HA UN RISTORANTE
+            
+            // REDIRECTO L'UTENTE ALLA INDEX
+            return redirect()->route('admin.restaurants.index');
+        }
+
+        // IMPORTO TUTTE LE TIPOLOGIE
+        $types = Type::all();
+
+        return view('admin.restaurants.create', compact('restaurant', 'types'));
     }
 
     /**
