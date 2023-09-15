@@ -157,9 +157,10 @@ class ProductController extends Controller
             }
 
         //
-        
+        $name = $product->name;
+
         $product->delete();
 
-        return redirect()->route('admin.products.index')->with('message', "Prodotto : '$project->title' Cancellato Correttamente");
+        return redirect()->route('admin.products.index')->with('message', "Prodotto : '$name' Cancellato Correttamente");
     }
 }
