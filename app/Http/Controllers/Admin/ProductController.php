@@ -116,7 +116,29 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
+        $form_data = $request->all();
+
+        // GESTIONE UPLOAD DEI FILE (COVER_IMAGE)
+
+            if($request->hasFile('cover_image')){
+
+                if($product->cover_image){
+
+                    Storage::delete($product->cover_image);
+                }
+                
+                $img_path = Storage::put('products_images', $request->cover_image);
+                
+                $form_data['cover_image'] = $img_path;
+            }
+
         //
+
+        $name = $product->name;
+
+        $product->update($form_data);
+
+        return redirect()->route('admin.products.show', compact('product'))->with('message', "Prodotto : '$name' Modificato Correttamente");
     }
 
     /**
