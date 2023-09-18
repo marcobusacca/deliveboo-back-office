@@ -5,7 +5,7 @@
         <div class="row">
             <!-- Restaurant Create Form -->
             <div class="col-12 my-3">
-                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded">
+                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded p-2">
                     @csrf
                     <!-- Card Header -->
                     <div class="card-header bg-white py-3">
@@ -52,10 +52,12 @@
                             <!-- Restaurant Types Label -->
                             <label class="control-label my-2">Seleziona le tipologie del tuo ristorante:</label>
                             @foreach ($types as $type)
-                                <!-- Types Input CheckBox -->
-                                <input type="checkbox" name="types[]" value="{{ $type->id }}" {{ in_array($type->id, old('types', [])) ? 'checked' : ''}} class="form-check-input @error('types') is-invalid @enderror">
-                                <!-- Types Label -->
-                                <label class="form-check-label">{{ $type->name }}</label>
+                                <div class="my-2">
+                                    <!-- Types Input CheckBox -->
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}" {{ in_array($type->id, old('types', [])) ? 'checked' : ''}} class="form-check-input @error('types') is-invalid @enderror">
+                                    <!-- Types Label -->
+                                    <label class="form-check-label">{{ $type->name }}</label>
+                                </div>
                             @endforeach
                             <!-- Types Error Text -->
                             @error('types')

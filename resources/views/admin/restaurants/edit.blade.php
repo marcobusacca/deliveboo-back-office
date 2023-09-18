@@ -3,9 +3,16 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <!-- Redirect To Restaurants List -->
+            <div class="col-12">
+                <a href="{{ route('admin.restaurants.index') }}" class="bg-black btn btn-dark rounded-5">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Torna indietro</span>
+                </a>
+            </div>
             <!-- Restaurant Edit Form -->
             <div class="col-12 my-3">
-                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded">
+                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded p-2">
                     @csrf
                     @method('PUT')
                     <!-- Card Header -->
@@ -51,7 +58,7 @@
                         <!-- Restaurant Types Form Group -->
                         <div class="form-group my-5">
                             <!-- Restaurant Types Label -->
-                            <span>Modifica le tipologie del tuo ristorante:</span>
+                            <span class="control-label my-2">Modifica le tipologie del tuo ristorante:</span>
                             @foreach ($types as $type)
                                 <div class="my-2">
                                     @if ($errors->any())

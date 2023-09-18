@@ -3,9 +3,16 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <!-- Redirect To Products List -->
+            <div class="col-12">
+                <a href="{{ route('admin.products.index') }}" class="bg-black btn btn-dark rounded-5">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Torna alla lista dei prodotti</span>
+                </a>
+            </div>
             <!-- Product Create Form -->
             <div class="col-12 my-3">
-                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded">
+                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded p-2">
                     @csrf
                     <!-- Card Header -->
                     <div class="card-header bg-white py-3">

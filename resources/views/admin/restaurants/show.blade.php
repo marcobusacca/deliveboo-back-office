@@ -3,6 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <!-- Redirect To Restaurants List -->
+            <div class="col-12">
+                <a href="{{ route('admin.restaurants.index') }}" class="bg-black btn btn-dark rounded-5">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Torna indietro</span>
+                </a>
+            </div>
             @if (session('message'))
                 <!-- Confirm Message -->
                 <div class="col-12 mt-5">
