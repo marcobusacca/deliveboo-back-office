@@ -1,16 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container py-5">
-    <div class="row">
-        @if (empty($restaurant))
-            <div class="col-12">
-                <h1 class="display-4 text-center">Inserisci il tuo Ristorante</h1>
-            </div>
+    <div class="container">
+        <div class="row">
             <div class="col-12 my-3">
-                <form action="{{ route('admin.restaurants.store') }}" method="POST" class="card p-4" enctype="multipart/form-data">
+                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="card mb-3">
+                    <div class="card shadow-lg rounded">
+                        <div class="card-header bg-white py-3">
+                            <h1 class="text-center">Inserisci il tuo Ristorante</h1>
+                        </div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nome ristorante:</label>
@@ -26,18 +25,14 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <label for="vat" class="form-label">Partita IVA:</label>
                                 <input type="text" name="vat" id="vat" placeholder="Inserisci partita IVA" class="form-control @error('vat') is-invalid @enderror" value="{{ old('vat') }}" required>
                                 @error('vat')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                        </div>
-                    </div>
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <label class="form-label">Seleziona le tipologie del tuo ristorante:</label>
                                 <div class="form-check">
                                     @foreach ($types as $type)
@@ -49,25 +44,20 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="mb-3">
+                            <div class="mb-5">
                                 <label for="cover_image" class="form-label">Logo del Ristorante:</label>
                                 <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror">
                                 @error('cover_image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-success">CREA</button>
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-success button-color px-5">CREA</button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-        @endif
+        </div>
     </div>
-</div>
 @endsection
