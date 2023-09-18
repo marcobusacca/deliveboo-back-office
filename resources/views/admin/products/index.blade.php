@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <!-- Delete Confirm Message -->
             @if (session('message'))
+                <!-- Confirm Message -->
                 <div class="col-12 mt-5">
                     <div class="alert alert-success">
                         <i class="fa-solid fa-circle-info"></i>

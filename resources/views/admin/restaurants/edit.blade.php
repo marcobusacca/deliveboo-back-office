@@ -10,6 +10,15 @@
                     <span>Torna indietro</span>
                 </a>
             </div>
+            @if (session('message'))
+                <!-- Confirm Message -->
+                <div class="col-12 mt-5">
+                    <div class="alert alert-success">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>{{ session('message') }}</span>
+                    </div>
+                </div>
+            @endif
             <!-- Restaurant Edit Form -->
             <div class="col-12 my-3">
                 <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded p-2">

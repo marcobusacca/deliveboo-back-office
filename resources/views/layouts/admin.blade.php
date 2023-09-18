@@ -39,7 +39,7 @@
                                         </a>
                                         <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-center text-white mt-5" style="background-color: #FF8100">
                                             <span><i class="fa-solid fa-triangle-exclamation"></i></span>
-                                            <span>Work in Progess</span>
+                                            <span>Work in Progress</span>
                                             <span><i class="fa-solid fa-triangle-exclamation"></i></span>
                                         </div>
                                         <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">

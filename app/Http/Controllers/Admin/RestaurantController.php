@@ -206,6 +206,6 @@ class RestaurantController extends Controller
             $restaurant->update();
         }
         
-        return redirect()->route('admin.restaurants.edit', compact('restaurant'));
+        return redirect()->route('admin.restaurants.edit', compact('restaurant'))->with('message', "Copertina cancellata correttamente");
     }
 }

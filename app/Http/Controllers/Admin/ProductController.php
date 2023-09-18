@@ -165,4 +165,18 @@ class ProductController extends Controller
 
         return redirect()->route('admin.products.index')->with('message', "Prodotto: '$name' cancellato correttamente");
     }
+
+    public function deleteCoverImage(Product $product)
+    {
+        if($product->cover_image){
+
+            Storage::delete($product->cover_image);
+
+            $product->cover_image = NULL;
+
+            $product->update();
+        }
+        
+        return redirect()->route('admin.products.edit', compact('product'))->with('message', "Copertina cancellata correttamente");
+    }
 }
