@@ -1,35 +1,71 @@
-@extends('layouts.admin') <!-- Estende il layout 'app' -->
+@extends('layouts.admin')
 
 @section('content')
-<div class="container py-5">
-    <div class="row">
-        <!-- Tasto per tornare alla lista dei prodotti -->
-        <div class="col-12 my-4">
-            <a href="{{ route('admin.products.index') }}" class="btn btn-dark rounded-5 mx-3">
-                <i class="fa-solid fa-arrow-left"></i> Torna alla lista dei prodotti
-            </a>
-        </div>
-
-        <div class="col-md-6">
-            <div class="card">
-                @if (empty($product->cover_image))
-                    <!-- Immagine di sostituzione -->
-                    <img class="card-img-top" src="{{ Vite::asset('resources/img/placeholder-image.jpg') }}" alt="{{ $product->slug }}-immagine-di-sostituzione">
-                @else
-                    <!-- Immagine di copertina -->
-                    <img class="card-img-top" src="{{ asset('storage/'.$product->cover_image) }}" alt="{{ $product->slug }}-immagine-di-copertina">
-                @endif
-
-                <div class="card-body">
-                    <!-- Visualizzazione delle informazioni del prodotto -->
-                    <h1 class="card-title">{{ $product->name }}</h1>
-                    <p class="card-text">Ingredienti: {{ $product->ingredients }}</p>
-                    <p class="card-text">Prezzo: ${{ number_format($product->price, 2) }}</p>
-                    <p class="card-text">{{ $product->description }}</p>
-                    <p class="card-text">Disponibilità: {{ $product->visible == 1 ? 'Disponibile' : 'Non disponibile' }}</p>
+    <div class="container">
+        <div class="row">
+            <!-- Redirect To Products List -->
+            <div class="col-12">
+                <a href="{{ route('admin.products.index') }}" class="bg-black btn btn-dark rounded-5">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Torna alla lista dei prodotti</span>
+                </a>
+            </div>
+            @if (session('message'))
+                <!-- Confirm Message -->
+                <div class="col-12 mt-5">
+                    <div class="alert alert-success">
+                        <span>{{ session('message') }}</span>
+                    </div>
+                </div>
+            @endif
+            <!-- Card Restaurant Product -->
+            <div class="col-12 d-flex justify-content-center align-items-center">
+                <div class="card" style="width: 35rem">
+                    <!-- Product Cover Image -->
+                    <div class="card-header">
+                        @if (empty($product->cover_image))
+                            <!-- Place-Holder Image -->
+                            <img class="card-img-top" src="{{ Vite::asset('resources/img/placeholder-image.jpg') }}" alt="product-place-holder-image">
+                        @else
+                            <!-- Cover Image -->
+                            <img class="card-img-top" src="{{ asset('storage/'.$product->cover_image) }}" alt="product-cover-image">
+                        @endif
+                    </div>
+                    <!-- Product Details -->
+                    <div class="card-body">
+                        <!-- Product Name -->
+                        <h3 class="mb-3">{{ $product->name }}</h3>
+                        <!-- Product Ingredients -->
+                        <div class="mb-3">
+                            <!-- Product Ingredients Icon -->
+                            <i class="fas fa-map"></i>
+                            <!-- Product Ingredients Text -->
+                            <span class="mx-1">{{ $product->ingredients }}</span>
+                        </div>
+                        <!-- Product Price -->
+                        <div class="mb-3">
+                            <!-- Product Price Icon -->
+                            <i class="fa-solid fa-circle-info"></i>
+                            <!-- Product Price Text -->
+                            <span class="mx-1">{{ $product->price }}€</span>
+                        </div>
+                        <!-- Product Description -->
+                        <div class="mb-3">
+                            <!-- Product Description Icon -->
+                            <i class="fa-solid fa-circle-info"></i>
+                            <!-- Product Description Text -->
+                            <span class="mx-1">{{ $product->description }}</span>
+                        </div>
+                        <!-- Product Visibility -->
+                        <div class="mb-3">
+                            <!-- Product Visibility Icon -->
+                            <i class="fa-solid fa-circle-info"></i>
+                            <!-- Product Visibility Text -->
+                            <span class="mx-1">Disponibile: {{ $product->visible == 1 ? 'Si' : 'No' }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

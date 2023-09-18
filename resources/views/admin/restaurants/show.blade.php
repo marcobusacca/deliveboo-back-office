@@ -3,6 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <!-- Redirect To Restaurants List -->
+            <div class="col-12">
+                <a href="{{ route('admin.restaurants.index') }}" class="bg-black btn btn-dark rounded-5">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Torna indietro</span>
+                </a>
+            </div>
             @if (session('message'))
                 <!-- Confirm Message -->
                 <div class="col-12 mt-5">
@@ -26,13 +33,20 @@
                     </div>
                     <!-- Restaurant Details -->
                     <div class="card-body">
+                        <!-- Restaurant Name -->
                         <h3 class="mb-3">{{ $restaurant->name }}</h3>
+                        <!-- Restaurant Address -->
                         <div class="mb-3">
+                            <!-- Restaurant Address Icon -->
                             <i class="fas fa-map"></i>
+                            <!-- Restaurant Address Text -->
                             <span class="mx-1">{{ $restaurant->address }}</span>
                         </div>
+                        <!-- Restaurant Vat -->
                         <div class="mb-3">
+                            <!-- Restaurant Vat Icon -->
                             <i class="fa-solid fa-circle-info"></i>
+                            <!-- Restaurant Vat Text -->
                             <span class="mx-1">{{ $restaurant->vat }}</span>
                         </div>
                         <!-- Restaurant Types -->

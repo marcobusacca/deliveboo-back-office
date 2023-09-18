@@ -37,14 +37,17 @@
                                             <i class="fa-solid fa-bell-concierge me-2"></i>
                                             <span>Il tuo menù</span>
                                         </a>
-                                        <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                        <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-center text-white mt-5" style="background-color: #FF8100">
+                                            <span>Work in Progess</span>
+                                        </div>
+                                        <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
                                             <i class="fa-solid fa-file-invoice-dollar me-2"></i>
                                             <span>I tuoi ordini</span>
-                                        </a>
-                                        <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                        </div>
+                                        <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
                                             <i class="fa-solid fa-chart-line me-2"></i>
                                             <span>Statistiche ordini</span>
-                                        </a>
+                                        </div>
                                     @endif
                                 </div>
                             </div>
