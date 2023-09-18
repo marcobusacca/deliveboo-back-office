@@ -19,7 +19,7 @@
             <nav class="top-bar navbar navbar-expand-md navbar-light shadow-sm">
                 <div class="container">
                     <div class="row w-100">
-                        <div class="col-6">
+                        <div class="col-md-6 col-8">
                             <ul class="navbar-nav me-auto">
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{url('/') }}">
@@ -28,7 +28,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6 col-4">
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
@@ -56,7 +56,7 @@
                                                 document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
                                             </a>
-            
+    
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
                                             </form>
@@ -69,49 +69,37 @@
                     </div>
                 </div>
             </nav>
+    
             <div class="d-flex">
                 <div class="sidebar">
                     <!-- Sidebar -->
                     <nav id="sidebarMenu" class="d-lg-block sidebar">
                         <div class="position-sticky">
                             <div class="list-group list-group-flush mt-4 rounded">
-                                <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
-                                    <i class="fas fa-tachometer-alt fa-fw me-3"></i>
-                                    <span>Dashboard</span>
-                                </a>
-                                <a href="{{ route('admin.restaurants.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
-                                    <span>Il tuo ristorante</span>
-                                </a>
-                                <a href="{{ route('admin.products.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
-                                    <span>Il tuo menù</span>
+                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
+                                    <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
-                                    <span>I tuoi ordini</span>
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo ristorante</span>
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
-                                    <span>Statistiche ordini</span>
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Il tuo menù</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
+                                    <i class="fas fa-chart-area fa-fw me-3"></i><span>Statistiche ordini</span>
                                 </a>
                             </div>
                         </div>
                     </nav>
                 </div>
-
+    
                 <div class="container-fluid">
                     <main>
                         @yield('content')
                     </main>
-
                 </div>
-
+    
             </div>
-            
-
-
         </div>
     </body>
-
 </html>
