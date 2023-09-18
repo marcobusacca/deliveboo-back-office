@@ -17,6 +17,7 @@
                 <table class="table table-striped border">
                     <thead>
                         <tr class="text-center">
+                            <th>Anteprima</th>
                             <th>Nome</th>
                             <th>Prezzo</th>
                             <th>Strumenti</th>
@@ -25,10 +26,14 @@
                     <tbody>
                         @foreach ($products as $product)
                             <tr class="text-center">
+                                <!-- Product Preview -->
+                                <td class="w-25">
+                                    <img class="card-img-top w-50" src="{{ asset('storage/'.$product->cover_image) }}" alt="product-cover-image">
+                                </td>
                                 <!-- Product Name -->
                                 <td>{{ $product->name }}</td>
                                 <!-- Product Price -->
-                                <td>{{ $product->price }}</td>
+                                <td>{{ $product->price }}€</td>
                                 <!-- Product Tools -->
                                 <td>
                                     <!-- Product Show Button -->
