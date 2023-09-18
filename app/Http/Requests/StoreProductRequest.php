@@ -24,28 +24,28 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:50',
-            'ingredients' => 'required|max:255',
-            'price' => 'required|numeric',
-            'visible' => 'required',
-            'cover_image' => 'nullable|image',
+            'name'          =>  'required|max:50',
+            'ingredients'   =>  'required|max:255',
+            'price'         =>  'required|numeric',
+            'visible'       =>  'required',
+            'cover_image'   =>  'nullable|image',
         ];
     }
 
     public function messages(){
          return[
-            'name.required'     =>  'Il nome è obbligatorio',
-            'name.max'          =>  'Il nome dev\'essere di massimo :max caratteri',
+            'name.required'         =>  'Il nome è obbligatorio',
+            'name.max'              =>  'Il nome deve essere di massimo :max caratteri',
 
-            'ingredients.required' => 'Gli ingredienti sono obbligatori',
-            'ingredients.max' => 'L\'elenco degli ingredienti deve essere di massimo :max caratteri',
+            'ingredients.required'  =>  'Gli ingredienti sono obbligatori',
+            'ingredients.max'       =>  'L\'elenco degli ingredienti deve essere di massimo :max caratteri',
 
-            'price.required'    =>  'Il prezzo è obbligatorio',
-            'price.numeric'     =>  'Il prezzo dev\' essere un valore numerico',
+            'price.required'        =>  'Il prezzo è obbligatorio',
+            'price.numeric'         =>  'Il prezzo deve essere un valore numerico',
 
-            'visible.required'  =>  'Il campo della visibilità è obbligatorio',
+            'visible.required'      =>  'Il campo della visibilità è obbligatorio',
 
-            'cover_image.image' =>  'L\' immagine dev\'essere nel formato: jpg, jpeg, png, webp'
+            'cover_image.image'     =>  'L\'immagine deve essere nel formato: jpg, jpeg, png, webp'
          ];
     }
 }

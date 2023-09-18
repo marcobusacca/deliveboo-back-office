@@ -24,7 +24,7 @@ class StoreRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|max:50',
             'address' => 'required',
             'vat' => 'required|numeric|regex:/^\d{11}$/|unique:restaurants,vat',
             'cover_image' => 'image',
@@ -37,18 +37,16 @@ class StoreRestaurantRequest extends FormRequest
     {
         return [
             'name.required' => 'Il nome del ristorante è obbligatorio',
+            'name.max' =>  'Il nome del ristorante deve essere di massimo :max caratteri',
 
             'address.required' => 'L\'indirizzo del ristorante è obbligatorio',
 
             'vat.required' => 'La Partiva IVA è obbligatoria',
-
             'vat.numeric' => 'La Partiva IVA deve essere composta solamente da numeri',
-
             'vat.regex' => 'La Partiva IVA deve avere una lunghezza di 11 caratteri',
-
             'vat.unique' => 'Questa Partiva IVA è già stata utilizzata',
 
-            'cover_image.image' => 'L\' immagine dev\'essere nel formato: jpg, jpeg, png, webp',
+            'cover_image.image' => 'L\' immagine deve essere nel formato: jpg, jpeg, png, webp',
 
             'types.required' => 'Devi selezionare almeno una Tipologia',
             'types.exists' => 'Tipologia selezionata non valida',
