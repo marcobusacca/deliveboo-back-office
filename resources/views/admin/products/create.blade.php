@@ -8,7 +8,7 @@
                 <h1>Inserisci il nuovo Prodotto</h1>
             </div>
             <!-- User Insert Product Form -->
-            <div class="col-12 my-5">
+            <div class="col-12 card my-5">
                 <form action="{{ route('admin.products.store') }}" method="POST" class="border p-3 w-100" enctype="multipart/form-data">
                     @csrf
                     <!-- Product Name Form Group -->

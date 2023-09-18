@@ -8,7 +8,7 @@
                 <h1>Modifica il nuovo Prodotto</h1>
             </div>
             <!-- User Insert Product Form -->
-            <div class="col-12 my-5">
+            <div class="col-12 card my-5">
                 <form action="{{ route('admin.products.update', $product) }}" method="POST" class="border p-3 w-100" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -100,7 +100,7 @@
                         </div>
                     <!-- Create Submit Button -->
                     <div class="col-12 d-flex justify-content-center align-items-center my-5">
-                        <button type="submit" class="btn btn-success fw-bold px-5">CREA</button>
+                        <button type="submit" class="btn btn-warning fw-bold px-5">MODIFICA</button>
                     </div>
                 </form>
             </div>
