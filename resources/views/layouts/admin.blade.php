@@ -76,23 +76,23 @@
                         <div class="position-sticky">
                             <div class="list-group list-group-flush mt-4 rounded">
                                 <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
-                                    <i class="fas fa-tachometer-alt fa-fw me-3"></i>
+                                    <span><i class="fas fa-tachometer-alt fa-fw me-2"></i></span>
                                     <span>Dashboard</span>
                                 </a>
                                 <a href="{{ route('admin.restaurants.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span><i class="fa-solid fa-utensils me-2"></i></span>
                                     <span>Il tuo ristorante</span>
                                 </a>
                                 <a href="{{ route('admin.products.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span><i class="fa-solid fa-bell-concierge me-2"></i></span>
                                     <span>Il tuo menù</span>
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span><i class="fa-solid fa-file-invoice-dollar me-2"></i></span>
                                     <span>I tuoi ordini</span>
                                 </a>
                                 <a href="#" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                    <i class="fas fa-chart-area fa-fw me-3"></i>
+                                    <span><i class="fa-solid fa-chart-line me-2"></i></span>
                                     <span>Statistiche ordini</span>
                                 </a>
                             </div>
