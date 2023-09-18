@@ -10,6 +10,15 @@
                     <span>Torna alla lista dei prodotti</span>
                 </a>
             </div>
+            @if (session('message'))
+                <!-- Confirm Message -->
+                <div class="col-12 mt-5">
+                    <div class="alert alert-success">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>{{ session('message') }}</span>
+                    </div>
+                </div>
+            @endif
             <!-- Product Edit Form -->
             <div class="col-12 my-3">
                 <form action="{{ route('admin.products.update', $product) }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded p-2">
@@ -90,7 +99,7 @@
                                     <!-- Current Cover Image -->
                                     <img src="{{ asset('storage/'.$product->cover_image) }}" alt="product-cover-image" class="d-block img-fluid w-25 border border-3 my-3">
                                     <!-- Current Cover Image Delete Button -->
-                                    {{-- <a href="{{ route('admin.products.edit.delete-cover-image', $product) }}" class="btn btn-danger my-3">Cancella Copertina</a> --}}
+                                    <a href="{{ route('admin.products.edit.delete-cover-image', $product) }}" class="btn btn-danger my-3">Cancella Copertina</a>
                                 </div>
                             @endif
                             <div class="my-4">
