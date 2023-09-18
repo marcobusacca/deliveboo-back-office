@@ -3,19 +3,13 @@
 @section('content')
     <div class="container bg-white">
         <div class="row">
-            <!-- Link To Restaurants List -->
-            <div class="col-12 my-4">
-                <a href="{{ route('admin.restaurants.index') }}" class="btn btn-dark rounded-5 mx-3">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </div>
             <!-- Edit Title With Restaurant Name -->
             <div class="col-12 d-flex justify-content-center align-items-end mt-5">
-                <h1 class="">Modifica il Ristorante "{{ $restaurant->name }}"</h1>
+                <h1 class="">Modifica {{ $restaurant->name }}</h1>
             </div>
             <!-- Edit Form -->
             <div class="col-12 my-5">
-                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" class="border p-3 w-100" enctype="multipart/form-data">
+                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" class="w-100" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <!-- Restaurant Name Form Group -->

@@ -6,11 +6,20 @@
             <div class="row">
                 <div class="col-12">
                     <div class="text-center p-3">
-                        <h1 class="mb-3">Benvenuto nella piattaforma ristoranti Deliveboo</h1>
+                        @if (Auth::user())
+                            <h1 class="mb-3">Benvenuto nella tua pagina personale Deliveboo</h1>
+                        @else
+                            <h1 class="mb-3">Benvenuto nella piattaforma ristoranti Deliveboo</h1>
+                        @endif
                         <h4 class="mb-3">Unisciti alla comunity di Deliveboo</h4>
                         <p class="">Insieme possiamo aiutarti a raggiungere sempre più clienti!</p>
                     </div>
                 </div>
+                @if (Auth::user())
+                    <div class="col-12 text-center">
+                        <a href="{{ route('admin.dashboard') }}" class="btn btn-success button-color">Accedi alla tua Dashboard</a>
+                    </div>
+                @endif
             </div>
         </div>
         <div class="container card mt-5 p-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
