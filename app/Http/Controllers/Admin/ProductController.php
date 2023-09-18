@@ -94,7 +94,7 @@ class ProductController extends Controller
 
         $name = $product->name;
 
-        return redirect()->route('admin.products.show', compact('product'))->with('message', "Prodotto : '$product' Aggiunto Correttamente");
+        return redirect()->route('admin.products.show', compact('product'))->with('message', "Prodotto: '$name' aggiunto correttamente");
     }
 
     /**
@@ -139,7 +139,7 @@ class ProductController extends Controller
 
         $product->update($form_data);
 
-        return redirect()->route('admin.products.show', compact('product'))->with('message', "Prodotto : '$name' Modificato Correttamente");
+        return redirect()->route('admin.products.show', compact('product'))->with('message', "Prodotto: '$name' modificato correttamente");
     }
 
     /**
@@ -163,6 +163,6 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('admin.products.index')->with('message', "Prodotto : '$name' Cancellato Correttamente");
+        return redirect()->route('admin.products.index')->with('message', "Prodotto: '$name' cancellato correttamente");
     }
 }

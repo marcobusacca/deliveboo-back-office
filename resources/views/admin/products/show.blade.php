@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <!-- Redirect To Products List -->
             <div class="col-12">
                 <a href="{{ route('admin.products.index') }}" class="bg-black btn btn-dark rounded-5">
@@ -12,8 +12,9 @@
             </div>
             @if (session('message'))
                 <!-- Confirm Message -->
-                <div class="col-12 mt-5">
+                <div class="col-6 mt-5">
                     <div class="alert alert-success">
+                        <i class="fa-solid fa-circle-info"></i>
                         <span>{{ session('message') }}</span>
                     </div>
                 </div>
@@ -38,14 +39,14 @@
                         <!-- Product Ingredients -->
                         <div class="mb-3">
                             <!-- Product Ingredients Icon -->
-                            <i class="fas fa-map"></i>
+                            <i class="fa-solid fa-plate-wheat"></i>
                             <!-- Product Ingredients Text -->
                             <span class="mx-1">{{ $product->ingredients }}</span>
                         </div>
                         <!-- Product Price -->
                         <div class="mb-3">
                             <!-- Product Price Icon -->
-                            <i class="fa-solid fa-circle-info"></i>
+                            <i class="fa-solid fa-tag"></i>
                             <!-- Product Price Text -->
                             <span class="mx-1">{{ $product->price }}€</span>
                         </div>
@@ -58,8 +59,6 @@
                         </div>
                         <!-- Product Visibility -->
                         <div class="mb-3">
-                            <!-- Product Visibility Icon -->
-                            <i class="fa-solid fa-circle-info"></i>
                             <!-- Product Visibility Text -->
                             <span class="mx-1">Disponibile: {{ $product->visible == 1 ? 'Si' : 'No' }}</span>
                         </div>

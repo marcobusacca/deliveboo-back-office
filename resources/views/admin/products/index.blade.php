@@ -7,6 +7,7 @@
             @if (session('message'))
                 <div class="col-12 mt-5">
                     <div class="alert alert-success">
+                        <i class="fa-solid fa-circle-info"></i>
                         <span>{{ session('message') }}</span>
                     </div>
                 </div>
@@ -52,7 +53,7 @@
                         <!-- Product Create Button -->
                         <tr class="text-center">
                             <td colspan="4" class="py-4">
-                                <a href="{{ route('admin.products.create') }}" class="text-decoration-none">Inserisci un Nuovo Prodotto</a>
+                                <a href="{{ route('admin.products.create') }}" class="text-decoration-none">Inserisci un nuovo prodotto</a>
                             </td>
                         </tr>
                     </tbody>

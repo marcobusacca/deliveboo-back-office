@@ -31,6 +31,10 @@
     background-color: #FF8100;
     min-height: calc(100vh - 75px);
     width: 250px;
+
+    .list-group-item > i{
+        width: 15px;
+    }
 }
 
 .background-image {
