@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container py-5">
+    <div class="container">
         <div class="row">
             <!-- Delete Confirm Message -->
             @if (session('message'))
