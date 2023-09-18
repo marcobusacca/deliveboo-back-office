@@ -25,7 +25,7 @@ class StoreRestaurantRequest extends FormRequest
     {
         return [
             'name'          =>  'required|max:50',
-            'address'       =>  'required',
+            'address'       =>  'required|max:50',
             'vat'           =>  'required|numeric|regex:/^\d{11}$/|unique:restaurants,vat',
             'cover_image'   =>  'image',
 
@@ -40,6 +40,7 @@ class StoreRestaurantRequest extends FormRequest
             'name.max'          =>  'Il nome del ristorante deve essere di massimo :max caratteri',
 
             'address.required'  =>  'L\'indirizzo del ristorante è obbligatorio',
+            'address.max'       =>  'L\'indirizzo del ristorante deve essere di massimo :max caratteri',
 
             'vat.required'      =>  'La Partiva IVA è obbligatoria',
             'vat.numeric'       =>  'La Partiva IVA deve essere composta solamente da numeri',

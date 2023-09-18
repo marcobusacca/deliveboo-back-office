@@ -25,7 +25,7 @@ class UpdateRestaurantRequest extends FormRequest
     {
         return [
             'name'          =>  'required|max:50',
-            'address'       =>  'required',
+            'address'       =>  'required|max:50',
             'cover_image'   =>  'image',
 
             'types'         =>  'required|exists:types,id',
@@ -39,6 +39,7 @@ class UpdateRestaurantRequest extends FormRequest
             'name.max'          =>  'Il nome del ristorante deve essere di massimo :max caratteri',
 
             'address.required'  =>  'L\'indirizzo del ristorante è obbligatorio',
+            'address.max'       =>  'L\'indirizzo del ristorante deve essere di massimo :max caratteri',
 
             'cover_image.image' =>  'L\' immagine deve essere nel formato: jpg, jpeg, png, webp',
 
