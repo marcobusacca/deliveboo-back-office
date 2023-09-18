@@ -7,44 +7,59 @@
     box-sizing: border-box;
 }
 
-.deliv-orange{
-    background-color: #FF8100;
+//Header
 
-}
+    .navbar{
+        background-color: #FF8100;
+    }
 
-.button-color{
-    background-color: #90BB3F;
-}
+    .top-bar{
+        height: 75px;    
+    }
 
-.navbar{
-    background-color: #FF8100;
-}
+    .logo-deliveboo{
+        width: 20vh;
+    }
 
-.logo-deliveboo{
-    width: 20vh;
-}
+//End header
 
-body{
-    background-image: url("../img/background/bg-back.png");
-    background-color: #ffffff;
-}
+//Main
 
-.top-bar{
-    height: 75px;
+    .sidebar{
+        background-color: #FF8100;
+        min-height: calc(100vh - 75px);
+        width: 250px;
+    }
 
-}
+    .background-image{
+        background-image: url('../img/background/1.png');
+        background-blend-mode: overlay;
+    }
 
+//End main
 
-
-.sidebar{
-    background-color: #FF8100;
-    min-height: calc(100vh - 75px);
-    width: 250px;
-}
-
-//REGISTER FORM
+//Register form
 
 .conditions-text{
     font-size: 9px;
 }
 
+//End register form
+
+
+//Utilities
+
+    .deliv-orange{
+        background-color: #FF8100;
+
+    }
+
+    .button-color{
+        background-color: #90BB3F;
+    }
+
+    .box-shadow{
+        box-shadow: 0 0 10px 5px rgb(0 0 0);
+    }
+
+//End utilities

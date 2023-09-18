@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
-            <div class="card p-3">
+            <div class="card">
                 <div class="card-header deliv-orange text-white text-center">Effettua login</div>
 
                 <div class="card-body">

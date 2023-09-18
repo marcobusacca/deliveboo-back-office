@@ -10,8 +10,8 @@
                 </a>
             </div>
             <!-- Edit Title With Restaurant Name -->
-            <div class="col-6 d-flex justify-content-start align-items-end mt-5">
-                <h1>Modifica il Ristorante "{{ $restaurant->name }}"</h1>
+            <div class="col-12 d-flex justify-content-center align-items-end mt-5">
+                <h1 class="">Modifica il Ristorante "{{ $restaurant->name }}"</h1>
             </div>
             <!-- Edit Form -->
             <div class="col-12 my-5">
