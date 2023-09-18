@@ -26,7 +26,7 @@ class StoreRestaurantRequest extends FormRequest
         return [
             'name' => 'required',
             'address' => 'required',
-            'vat' => 'required|numeric|regex:/^\d{11}$/',
+            'vat' => 'required|numeric|regex:/^\d{11}$/|unique:restaurants,vat',
             'cover_image' => 'image',
 
             'types' => 'required|exists:types,id',
@@ -45,6 +45,8 @@ class StoreRestaurantRequest extends FormRequest
             'vat.numeric' => 'La Partiva IVA deve essere composta solamente da numeri',
 
             'vat.regex' => 'La Partiva IVA deve avere una lunghezza di 11 caratteri',
+
+            'vat.unique' => 'Questa Partiva IVA è già presente nel nostro Database',
 
             'cover_image.image' => 'Il file inserito deve essere un\'immagine',
 
