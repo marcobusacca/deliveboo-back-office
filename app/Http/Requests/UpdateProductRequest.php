@@ -36,9 +36,15 @@ class UpdateProductRequest extends FormRequest
          return[
             'name.required'     =>  'Il nome è obbligatorio',
             'name.max'          =>  'Il nome dev\'essere di massimo :max caratteri',
+
+            'ingredients.required' => 'Gli ingredienti sono obbligatori',
+            'ingredients.max' => 'L\'elenco degli ingredienti deve essere di massimo :max caratteri',
+
             'price.required'    =>  'Il prezzo è obbligatorio',
             'price.numeric'     =>  'Il prezzo dev\' essere un valore numerico',
+
             'visible.required'  =>  'Il campo della visibilità è obbligatorio',
+
             'cover_image.image' =>  'L\' immagine dev\'essere nel formato: jpg, jpeg, png, webp'
          ];
     }

@@ -49,7 +49,9 @@
                             <!-- VAT Label -->
                             <label class="control-label my-2">Partita IVA:</label>
                             <!-- VAT Input Text -->
-                            <input type="text" name="vat" id="vat" placeholder="Modifica partita IVA" class="form-control @error('vat') is-invalid @enderror" value="{{ old('vat') ?? $restaurant->vat }}">
+                            <input type="text" name="vat" id="vat" placeholder="Modifica partita IVA" class="form-control @error('vat') is-invalid @enderror" value="{{ old('vat') ?? $restaurant->vat }}" disabled>
+                            <!-- VAT Info Text -->
+                            <span class="font-size-13">Per modificare la tua partita IVA contattaci via e-mail: support@deliveboo.it</span>
                             <!-- VAT Error Text -->
                             @error('vat')
                                 <div class="text-danger">{{ $message }}</div>

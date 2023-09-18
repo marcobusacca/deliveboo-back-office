@@ -48,7 +48,7 @@ class UpdateRestaurantRequest extends FormRequest
 
             'vat.unique' => 'Questa Partiva IVA è già stata utilizzata',
 
-            'cover_image.image' => 'Il file inserito deve essere un\'immagine',
+            'cover_image.image' => 'L\' immagine dev\'essere nel formato: jpg, jpeg, png, webp',
 
             'types.required' => 'Devi selezionare almeno una Tipologia',
             'types.exists' => 'Tipologia selezionata non valida',
