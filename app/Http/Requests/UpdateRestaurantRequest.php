@@ -46,7 +46,7 @@ class UpdateRestaurantRequest extends FormRequest
 
             'vat.regex' => 'La Partiva IVA deve avere una lunghezza di 11 caratteri',
 
-            'vat.unique' => 'Questa Partiva IVA è già presente nel nostro Database',
+            'vat.unique' => 'Questa Partiva IVA è già stata utilizzata',
 
             'cover_image.image' => 'Il file inserito deve essere un\'immagine',
 
