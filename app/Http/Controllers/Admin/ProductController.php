@@ -45,7 +45,23 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin.products.show', compact('product'));
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // RECUPERO IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
+        $restaurant = $user->restaurant;
+
+        // CONTROLLO SE, IL PRODUCT CHE MI è STATO PASSATO, è UN PRODUCT APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
+        if ($restaurant->products->contains($product)){
+
+            // RITORNO LA SHOW DEL PRODUCT
+            return view('admin.products.show', compact('product'));
+
+        } else {
+
+            // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+            return redirect()->back();
+        }
     }
 
     /**
@@ -105,7 +121,23 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.products.edit', compact('product'));
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // RECUPERO IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
+        $restaurant = $user->restaurant;
+
+        // CONTROLLO SE, IL PRODUCT CHE MI è STATO PASSATO, è UN PRODUCT APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
+        if ($restaurant->products->contains($product)){
+
+            // RITORNO LA EDIT DEL PRODUCT
+            return view('admin.products.edit', compact('product'));
+
+        } else {
+
+            // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+            return redirect()->back();
+        }
     }
 
     /**
