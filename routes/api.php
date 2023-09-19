@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Api\LeadController as LeadController;
+use App\Http\Controllers\Api\TypeController as TypeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/contacts', [LeadController::class, 'store']);
+Route::get('/types', [TypeController::class, 'index']);
