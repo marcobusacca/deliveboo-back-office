@@ -23,12 +23,18 @@
                             <th>Strumenti</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="align-middle">
                         @foreach ($products as $product)
                             <tr class="text-center">
                                 <!-- Product Preview -->
                                 <td class="w-25">
-                                    <img class="card-img-top w-50" src="{{ asset('storage/'.$product->cover_image) }}" alt="product-cover-image">
+                                    @if (empty($product->cover_image))
+                                        <!-- Place-Holder Image -->
+                                        <img class="card-img-top w-50" src="{{ Vite::asset('resources/img/placeholder-image.jpg') }}" alt="product-place-holder-image">
+                                    @else
+                                        <!-- Cover Image -->
+                                        <img class="card-img-top w-50" src="{{ asset('storage/'.$product->cover_image) }}" alt="product-cover-image">
+                                    @endif
                                 </td>
                                 <!-- Product Name -->
                                 <td>{{ $product->name }}</td>
