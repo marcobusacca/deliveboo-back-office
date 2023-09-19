@@ -44,7 +44,20 @@ class RestaurantController extends Controller
      */
     public function show(Restaurant $restaurant)
     {
-        return view('admin.restaurants.show', compact('restaurant'));
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // CONTROLLO SE, IL RESTAURANT CHE MI è STATO PASSATO, CORRISPONDE AL RESTAURANT COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
+        if ($user->restaurant == $restaurant){
+
+            // RITORNO LA SHOW DEL RESTAURANT
+            return view('admin.restaurants.show', compact('restaurant'));
+
+        } else {
+
+            // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+            return redirect()->back();
+        }
     }
 
     /**
@@ -57,14 +70,9 @@ class RestaurantController extends Controller
         // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
         $user = auth()->user();
 
-        // CONTROLLO SE L'UTENTE NON HA UN RISTORANTE
-        if(!isset($user->restaurant)){
+        // CONTROLLO SE L'UTENTE HA UN RISTORANTE
+        if(isset($user->restaurant)){
 
-            // LA VARIABILE "RESTAURANT" è UN ARRAY VUOTO
-            $restaurant = [];
-        }
-        else{ // L'UTENTE HA UN RISTORANTE
-            
             // REDIRECTO L'UTENTE ALLA INDEX
             return redirect()->route('admin.restaurants.index');
         }
@@ -72,7 +80,7 @@ class RestaurantController extends Controller
         // IMPORTO TUTTE LE TIPOLOGIE
         $types = Type::all();
 
-        return view('admin.restaurants.create', compact('restaurant', 'types'));
+        return view('admin.restaurants.create', compact('types'));
     }
 
     /**
@@ -131,10 +139,23 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        // IMPORTO TUTTE LE TIPOLOGIE
-        $types = Type::all();
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
 
-        return view('admin.restaurants.edit', compact('restaurant', 'types'));
+        // CONTROLLO SE, IL RESTAURANT CHE MI è STATO PASSATO, CORRISPONDE AL RESTAURANT COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
+        if ($user->restaurant == $restaurant){
+
+            // IMPORTO TUTTE LE TIPOLOGIE
+            $types = Type::all();
+
+            // RITORNO LA EDIT DEL RESTAURANT
+            return view('admin.restaurants.edit', compact('restaurant', 'types'));
+
+        } else {
+
+            // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+            return redirect()->back();
+        }
     }
 
     /**
