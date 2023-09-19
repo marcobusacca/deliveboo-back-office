@@ -62,7 +62,7 @@
                         <!-- Product Visibility -->
                         <div class="mb-3">
                             <!-- Product Visibility Text -->
-                            <span class="fw-bold mx-1 @if($product->visible == 1) text-success @else text-danger @endif">{{ $product->visible == 1 ? 'Disponibile' : 'Non Disponibile' }}</span>
+                            <span class="fw-bold mx-1 {{ $product->visible == 1 ? 'text-success' : 'text-danger' }}">{{ $product->visible == 1 ? 'Disponibile' : 'Non Disponibile' }}</span>
                         </div>
                     </div>
                 </div>
