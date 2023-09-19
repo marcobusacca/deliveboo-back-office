@@ -50,17 +50,19 @@
                             <!-- Product Price Text -->
                             <span class="mx-1">{{ $product->price }}€</span>
                         </div>
-                        <!-- Product Description -->
-                        <div class="mb-3">
-                            <!-- Product Description Icon -->
-                            <i class="fa-solid fa-circle-info"></i>
-                            <!-- Product Description Text -->
-                            <span class="mx-1">{{ $product->description }}</span>
-                        </div>
+                        @if ($product->description)
+                            <!-- Product Description -->
+                            <div class="mb-3">
+                                <!-- Product Description Icon -->
+                                <i class="fa-solid fa-circle-info"></i>
+                                <!-- Product Description Text -->
+                                <span class="mx-1">{{ $product->description }}</span>
+                            </div>
+                        @endif
                         <!-- Product Visibility -->
                         <div class="mb-3">
                             <!-- Product Visibility Text -->
-                            <span class="mx-1">Disponibile: {{ $product->visible == 1 ? 'Si' : 'No' }}</span>
+                            <span class="fw-bold mx-1 @if($product->visible == 1) text-success @else text-danger @endif">{{ $product->visible == 1 ? 'Disponibile' : 'Non Disponibile' }}</span>
                         </div>
                     </div>
                 </div>

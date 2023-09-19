@@ -17,7 +17,7 @@
                         <!-- Restaurant Name Form Group -->
                         <div class="form-group my-4">
                             <!-- Name Label -->
-                            <label class="control-label my-2">Nome ristorante:</label>
+                            <label class="control-label my-2">Nome ristorante *</label>
                             <!-- Name Input Text -->
                             <input type="text" name="name" id="name" placeholder="Inserisci il nome del ristorante" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" maxlength="50" required>
                             <!-- Name Error Text -->
@@ -28,7 +28,7 @@
                         <!-- Restaurant Address Form Group -->
                         <div class="form-group my-4">
                             <!-- Address Label -->
-                            <label class="control-label my-2">Indirizzo ristorante:</label>
+                            <label class="control-label my-2">Indirizzo ristorante *</label>
                             <!-- Address Input Text -->
                             <input type="text" name="address" id="address" placeholder="Inserisci l'indirizzo del ristorante" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') }}" maxlength="50" required>
                             <!-- Address Error Text -->
@@ -39,7 +39,7 @@
                         <!-- Restaurant VAT Form Group -->
                         <div class="form-group my-4">
                             <!-- VAT Label -->
-                            <label class="control-label my-2">Partita IVA:</label>
+                            <label class="control-label my-2">Partita IVA *</label>
                             <!-- VAT Input Text -->
                             <input type="text" name="vat" id="vat" placeholder="Inserisci partita IVA" class="form-control @error('vat') is-invalid @enderror" value="{{ old('vat') }}" minlength="11" maxlength="11" required>
                             <!-- VAT Error Text -->
@@ -50,7 +50,7 @@
                         <!-- Restaurant Types Form Group -->
                         <div class="form-group my-5">
                             <!-- Restaurant Types Label -->
-                            <label class="control-label my-2">Seleziona le tipologie del tuo ristorante:</label>
+                            <label class="control-label my-2">Seleziona le tipologie del tuo ristorante *</label>
                             @foreach ($types as $type)
                                 <div class="my-2">
                                     <!-- Types Input CheckBox -->
@@ -67,7 +67,7 @@
                         <!-- Project Cover Image Form Group -->
                         <div class="form-group my-4">
                             <!-- Cover Image Label -->
-                            <label class="control-label my-2">Logo del Ristorante:</label>
+                            <label class="control-label my-2">Logo del Ristorante</label>
                             <!-- Cover Image Input File -->
                             <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" accept="image/jpg, image/jpeg, image/png, image/webp">
                             <!-- Cover Image Error Text -->
