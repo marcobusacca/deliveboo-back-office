@@ -26,7 +26,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'name'          =>  'required|max:50',
             'ingredients'   =>  'required|max:255',
-            'price'         =>  'required|numeric',
+            'price'         =>  'required|numeric|min:0.10',
             'visible'       =>  'required',
             'cover_image'   =>  'image',
         ];
@@ -42,6 +42,7 @@ class UpdateProductRequest extends FormRequest
 
             'price.required'        =>  'Il prezzo è obbligatorio',
             'price.numeric'         =>  'Il prezzo deve essere un valore numerico',
+            'price.min'             =>  'Il prezzo deve essere superiore a :min€',
 
             'visible.required'      =>  'Il campo della visibilità è obbligatorio',
 
