@@ -28,7 +28,7 @@ class UpdateProductRequest extends FormRequest
             'ingredients'   =>  'required|max:255',
             'price'         =>  'required|numeric',
             'visible'       =>  'required',
-            'cover_image'   =>  'nullable|image',
+            'cover_image'   =>  'image',
         ];
     }
 

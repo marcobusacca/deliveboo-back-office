@@ -177,6 +177,6 @@ class ProductController extends Controller
             $product->update();
         }
         
-        return redirect()->route('admin.products.edit', compact('product'))->with('message', "Copertina cancellata correttamente");
+        return redirect()->route('admin.products.edit', compact('product'))->with('message', "Immagine cancellata correttamente");
     }
 }

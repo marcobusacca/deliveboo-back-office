@@ -36,7 +36,7 @@
                             <!-- Name Label -->
                             <label class="control-label my-2">Nome ristorante:</label>
                             <!-- Name Input Text -->
-                            <input type="text" name="name" id="name" placeholder="Modifica il nome del ristorante" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $restaurant->name }}">
+                            <input type="text" name="name" id="name" placeholder="Modifica il nome del ristorante" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') ?? $restaurant->name }}" maxlength="50" required>
                             <!-- Name Error Text -->
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
@@ -47,7 +47,7 @@
                             <!-- Address Label -->
                             <label class="control-label my-2">Indirizzo ristorante:</label>
                             <!-- Address Input Text -->
-                            <input type="text" name="address" id="address" placeholder="Modifica l'indirizzo del ristorante" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') ?? $restaurant->address }}">
+                            <input type="text" name="address" id="address" placeholder="Modifica l'indirizzo del ristorante" class="form-control @error('address') is-invalid @enderror" value="{{ old('address') ?? $restaurant->address }}" maxlength="50" required>
                             <!-- Address Error Text -->
                             @error('address')
                                 <div class="text-danger">{{ $message }}</div>
@@ -109,7 +109,7 @@
                                     <label class="control-label my-2">Logo del Ristorante:</label>
                                 @endif
                                 <!-- Cover Image Input File -->
-                                <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror">
+                                <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" accept="image/jpg, image/jpeg, image/png, image/webp">
                                 <!-- Cover Image Error Text -->
                                 @error('cover_image')
                                     <div class="text-danger">{{ $message }}</div>

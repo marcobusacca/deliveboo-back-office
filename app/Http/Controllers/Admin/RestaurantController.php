@@ -120,9 +120,7 @@ class RestaurantController extends Controller
 
         //
 
-        $name = $restaurant->name;
-
-        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Ristorante: '$name' creato correttamente");
+        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Ristorante creato correttamente");
     }
 
     /**
@@ -168,8 +166,6 @@ class RestaurantController extends Controller
 
         $form_data['slug'] = $restaurant->generateSlug($form_data['name']);
 
-        $name = $restaurant->name;
-
         $restaurant->update($form_data);
 
         // GESTIONE RELAZIONE MANY-TO-MANY (RESTAURANTS - TYPES)
@@ -181,7 +177,7 @@ class RestaurantController extends Controller
 
         //
 
-        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Ristorante: '$name' modificato correttamente");
+        return redirect()->route('admin.restaurants.show', compact('restaurant'))->with('message', "Ristorante modificato correttamente");
     }
 
     /**
@@ -206,6 +202,6 @@ class RestaurantController extends Controller
             $restaurant->update();
         }
         
-        return redirect()->route('admin.restaurants.edit', compact('restaurant'))->with('message', "Copertina cancellata correttamente");
+        return redirect()->route('admin.restaurants.edit', compact('restaurant'))->with('message', "Immagine cancellata correttamente");
     }
 }

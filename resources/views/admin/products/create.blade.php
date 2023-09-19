@@ -26,7 +26,7 @@
                             <!-- Name Label -->
                             <label class="control-label my-2">Nome:</label>
                             <!-- Name Input Text -->
-                            <input type="text" name="name" id="name" placeholder="Inserisci il nome" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+                            <input type="text" name="name" id="name" placeholder="Inserisci il nome" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" maxlength="50" required>
                             <!-- Name Error Text -->
                             @error('name')
                                 <div class="text-danger">{{ $message }}</div>
@@ -37,7 +37,7 @@
                             <!-- Ingredients Label -->
                             <label class="control-label my-2">Ingredienti:</label>
                             <!-- Ingredients TextArea -->
-                            <textarea name="ingredients" id="ingredients" placeholder="Inserisci gli ingredienti" class="form-control @error('ingredients') is-invalid @enderror" cols="30" rows="3">{{ old('ingredients') }}</textarea>
+                            <textarea name="ingredients" id="ingredients" placeholder="Inserisci gli ingredienti" class="form-control @error('ingredients') is-invalid @enderror" cols="30" rows="3" maxlength="255" required>{{ old('ingredients') }}</textarea>
                             <!-- Ingredients Error Text -->
                             @error('ingredients')
                                 <div class="text-danger">{{ $message }}</div>
@@ -48,7 +48,7 @@
                             <!-- Price Label -->
                             <label class="control-label my-2">Prezzo:</label>
                             <!-- Price Input Text -->
-                            <input type="number" step="any" name="price" id="price" placeholder="Inserisci il prezzo" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}">
+                            <input type="number" step="any" name="price" id="price" placeholder="Inserisci il prezzo" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" required>
                             <!-- Price Error Text -->
                             @error('price')
                                 <div class="text-danger">{{ $message }}</div>
@@ -70,10 +70,10 @@
                             <!-- Visible Label -->
                             <label class="control-label my-2">Visibilità del prodotto:</label>
                             <!-- Visible Select -->
-                            <select name="visible" id="visible" class="form-control @error('visible') is-invalid @enderror">
+                            <select name="visible" id="visible" class="form-control @error('visible') is-invalid @enderror" required>
                                 <option value="">Scegli se rendere il Prodotto Visibile ai Clienti</option>
-                                <option @selected(old('visible') == 'Si') value="1">Si</option>
-                                <option @selected(old('visible') == 'No') value="0">No</option>
+                                <option @selected(old('visible') == "1") value="1">Si</option>
+                                <option @selected(old('visible') == "0") value="0">No</option>
                             </select>
                             <!-- Visible Error Text -->
                             @error('visible')
@@ -85,7 +85,7 @@
                             <!-- Cover Image Label -->
                             <label class="control-label my-2">Immagine:</label>
                             <!-- Cover Image Input File -->
-                            <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror">
+                            <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror" accept="image/jpg, image/jpeg, image/png, image/webp">
                             <!-- Cover Image Error Text -->
                             @error('cover_image')
                                 <div class="text-danger">{{ $message }}</div>
