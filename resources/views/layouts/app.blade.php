@@ -20,9 +20,11 @@
 
 <body>
     <div id="app">
+        <!-- Header -->
         <header>
             @include('partials.header')
         </header>
+        <!-- Main -->
         <main>
             @yield('content')
         </main> 

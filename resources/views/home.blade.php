@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="jumbotron p-5 mb-4 rounded-3">
-        <div class="container card py-5 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <div class="container card shadow bg-body-tertiary py-5 mb-5">
             <div class="row">
                 <div class="col-12">
                     <div class="text-center p-3">
@@ -22,7 +22,7 @@
                 @endif
             </div>
         </div>
-        <div class="container card mt-5 p-4 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <div class="container card shadow bg-body-tertiary p-4 my-5">
             <div class="row align-items-center">
                 <div class="text-center">
                     <h1 class="mb-5">Cosa puoi fare</h1>

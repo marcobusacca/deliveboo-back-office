@@ -21,7 +21,7 @@
             @endif
             <!-- Card Restaurant Product -->
             <div class="col-12 d-flex justify-content-center align-items-center">
-                <div class="card" style="width: 35rem">
+                <div class="card shadow bg-body-tertiary" style="width: 35rem">
                     <!-- Product Cover Image -->
                     <div class="card-header">
                         @if (empty($product->cover_image))

@@ -21,7 +21,7 @@
             @endif
             <!-- Restaurant Edit Form -->
             <div class="col-12 my-3">
-                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded p-2">
+                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" enctype="multipart/form-data" class="card shadow bg-body-tertiary p-2">
                     @csrf
                     @method('PUT')
                     <!-- Card Header -->

@@ -30,16 +30,19 @@
 .sidebar {
     background-color: #FF8100;
     min-height: calc(100vh - 75px);
-    width: 250px;
+    width: 300px;
 
-    .list-group-item>i {
-        width: 15px;
+    .list-group-item {
+        background-color: transparent;
+
+        i {
+            width: 15px;
+        }
     }
 }
 
 .background-image {
     background-image: url('../img/background/1.png');
-    background-blend-mode: overlay;
 }
 
 // END MAIN

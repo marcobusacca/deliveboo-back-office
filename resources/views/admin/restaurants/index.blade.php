@@ -5,7 +5,7 @@
         <div class="row">
             <!-- Card User Restaurant -->
             <div class="col-12 d-flex justify-content-center align-items-center">
-                <div class="card" style="width: 35rem">
+                <div class="card shadow bg-body-tertiary" style="width: 35rem">
                     <!-- Restaurant Cover Image -->
                     <div class="card-header">
                         @if (!empty($restaurant->cover_image))

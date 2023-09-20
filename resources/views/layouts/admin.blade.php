@@ -14,47 +14,67 @@
     </head>
     <body>
         <div id="app">
+            <!-- Header -->
             <header>
                 @include('partials.header')
             </header>
+            <!-- Main -->
             <main>
                 <div class="d-flex">
-                    <div class="sidebar">
-                        <!-- Sidebar -->
-                        <nav id="sidebarMenu" class="d-lg-block sidebar">
-                            <div class="position-sticky">
-                                <div class="list-group list-group-flush mt-4 rounded">
-                                    <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" aria-current="true" style="background-color: #FF8100">
-                                        <i class="fas fa-tachometer-alt fa-fw me-2"></i>
-                                        <span>Dashboard</span>
+                    <!-- Main Sidebar -->
+                    <nav id="sidebarMenu" class="sidebar shadow">
+                        <div class="position-sticky">
+                            <div class="list-group list-group-flush mt-4">
+                                <!-- Dashboard -->
+                                <a href="{{ route('admin.dashboard') }}" class="list-group-item fw-bold text-white py-2">
+                                    <!-- Dashboard Icon -->
+                                    <i class="fas fa-tachometer-alt fa-fw me-2"></i>
+                                    <!-- Dashboard Text -->
+                                    <span>Dashboard</span>
+                                </a>
+                                <!-- Il tuo ristorante -->
+                                <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2">
+                                    <!-- Il tuo ristorante Icon -->
+                                    <i class="fa-solid fa-utensils me-2"></i>
+                                    <!-- Il tuo ristorante Text -->
+                                    <span>Il tuo ristorante</span>
+                                </a>
+                                @if (isset(Auth::user()->restaurant))
+                                    <!-- Il tuo menù -->
+                                    <a href="{{ route('admin.products.index') }}" class="list-group-item fw-bold text-white py-2">
+                                        <!-- Il tuo menù Icon -->
+                                        <i class="fa-solid fa-bell-concierge me-2"></i>
+                                        <!-- Il tuo menù Text -->
+                                        <span>Il tuo menù</span>
                                     </a>
-                                    <a href="{{ route('admin.restaurants.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                        <i class="fa-solid fa-utensils me-2"></i>
-                                        <span>Il tuo ristorante</span>
-                                    </a>
-                                    @if (isset(Auth::user()->restaurant))
-                                        <a href="{{ route('admin.products.index') }}" class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                            <i class="fa-solid fa-bell-concierge me-2"></i>
-                                            <span>Il tuo menù</span>
-                                        </a>
-                                        <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-center text-white mt-5" style="background-color: #FF8100">
-                                            <i class="fa-solid fa-triangle-exclamation"></i>
-                                            <span>Work in Progress</span>
-                                            <i class="fa-solid fa-triangle-exclamation"></i>
-                                        </div>
-                                        <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                            <i class="fa-solid fa-file-invoice-dollar me-2"></i>
-                                            <span>I tuoi ordini</span>
-                                        </div>
-                                        <div class="list-group-item list-group-item-action py-2 ripple fw-bold text-white" style="background-color: #FF8100">
-                                            <i class="fa-solid fa-chart-line me-2"></i>
-                                            <span>Statistiche ordini</span>
-                                        </div>
-                                    @endif
-                                </div>
+                                    <!-- Work in Progress -->
+                                    <div class="list-group-item fw-bold text-center text-white py-2 mt-5">
+                                        <!-- Work in Progress Icon -->
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                        <!-- Work in Progress Text -->
+                                        <span>Work in Progress</span>
+                                        <!-- Work in Progress Icon -->
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                    </div>
+                                    <!-- I tuoi ordini -->
+                                    <div class="list-group-item fw-bold text-white py-2">
+                                        <!-- I tuoi ordini Icon -->
+                                        <i class="fa-solid fa-file-invoice-dollar me-2"></i>
+                                        <!-- I tuoi ordini Text -->
+                                        <span>I tuoi ordini</span>
+                                    </div>
+                                    <!-- Statistiche ordini -->
+                                    <div class="list-group-item fw-bold text-white py-2">
+                                        <!-- Statistiche ordini Icon -->
+                                        <i class="fa-solid fa-chart-line me-2"></i>
+                                        <!-- Statistiche ordini Text -->
+                                        <span>Statistiche ordini</span>
+                                    </div>
+                                @endif
                             </div>
-                        </nav>
-                    </div>
+                        </div>
+                    </nav>
+                    <!-- Main Content -->
                     <div class="container-fluid p-0">
                         <div class="background-image p-5 w-100 h-100">
                             @yield('content')

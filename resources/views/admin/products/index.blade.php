@@ -14,7 +14,7 @@
             @endif
             <!-- Products Infos Table -->
             <div class="col-12">
-                <table class="table table-striped border">
+                <table class="table table-striped shadow bg-body-tertiary">
                     <thead>
                         <tr class="text-center">
                             <th>Anteprima</th>

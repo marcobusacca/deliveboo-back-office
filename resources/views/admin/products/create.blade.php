@@ -12,7 +12,7 @@
             </div>
             <!-- Product Create Form -->
             <div class="col-12 my-3">
-                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="card shadow-lg rounded p-2">
+                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="card shadow bg-body-tertiary p-2">
                     @csrf
                     <!-- Card Header -->
                     <div class="card-header bg-white py-3">
