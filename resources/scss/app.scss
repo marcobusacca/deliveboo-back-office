@@ -54,6 +54,29 @@
 // END REGISTER FORM
 
 
+// ERROR PAGE
+
+.error-main {
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+
+    .errors-background {
+        background-image: url('../img/errors/404-background.png');
+        background-position: center;
+    }
+
+    .error-title {
+        font-size: 70px;
+    }
+
+    .error-deliveboo-copyright {
+        font-size: 14px;
+    }
+}
+
+// END ERROR PAGE
+
+
 // UTILITIES
 
 .deliv-orange {
