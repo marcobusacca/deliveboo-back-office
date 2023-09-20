@@ -15,11 +15,11 @@
     <body>
         <div id="app">
             <!-- Header -->
-            <header>
+            <header class="admin-header">
                 @include('partials.header')
             </header>
             <!-- Main -->
-            <main>
+            <main class="admin-main">
                 <div class="d-flex">
                     <!-- Main Sidebar -->
                     <nav id="sidebarMenu" class="sidebar shadow">
