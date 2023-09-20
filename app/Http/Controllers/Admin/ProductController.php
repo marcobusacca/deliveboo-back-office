@@ -29,7 +29,7 @@ class ProductController extends Controller
         else{ // L'UTENTE NON HA UN RISTORANTE
             
             // REDIRECTO L'UTENTE ALLA CREATE DEL RISTORANTE
-            return redirect()->route('admin.restaurants.index');
+            return redirect()->route('admin.restaurants.create');
         }
 
         $products = Product::where('restaurant_id', $restaurant_id)->get();
@@ -51,14 +51,22 @@ class ProductController extends Controller
         // RECUPERO IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
         $restaurant = $user->restaurant;
 
-        // CONTROLLO SE, IL PRODUCT CHE MI è STATO PASSATO, è UN PRODUCT APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
-        if ($restaurant->products->contains($product)){
+        // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN PRODOTTO
+        if(isset($restaurant->products)){
 
-            // RITORNO LA SHOW DEL PRODUCT
-            return view('admin.products.show', compact('product'));
+            // CONTROLLO SE, IL PRODUCT CHE MI è STATO PASSATO, è UN PRODUCT APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
+            if($restaurant->products->contains($product)){
 
-        } else {
+                // RITORNO LA SHOW DEL PRODUCT
+                return view('admin.products.show', compact('product'));
 
+            } else{
+
+                // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+                return redirect()->back();
+            }
+
+        } else{
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
             return redirect()->back();
         }
@@ -71,6 +79,16 @@ class ProductController extends Controller
      */
     public function create()
     {
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // CONTROLLO SE L'UTENTE NON HA UN RISTORANTE
+        if(!isset($user->restaurant)){
+
+            // REDIRECTO L'UTENTE ALLA CREATE DEL RISTORANTE
+            return redirect()->route('admin.restaurants.create');
+        }
+
         return view('admin.products.create');
     }
 
@@ -127,14 +145,22 @@ class ProductController extends Controller
         // RECUPERO IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
         $restaurant = $user->restaurant;
 
-        // CONTROLLO SE, IL PRODUCT CHE MI è STATO PASSATO, è UN PRODUCT APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
-        if ($restaurant->products->contains($product)){
+        // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN PRODOTTO
+        if(isset($restaurant->products)){
 
-            // RITORNO LA EDIT DEL PRODUCT
-            return view('admin.products.edit', compact('product'));
+            // CONTROLLO SE, IL PRODUCT CHE MI è STATO PASSATO, è UN PRODUCT APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
+            if($restaurant->products->contains($product)){
+    
+                // RITORNO LA EDIT DEL PRODUCT
+                return view('admin.products.edit', compact('product'));
+    
+            } else{
+    
+                // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+                return redirect()->back();
+            }
 
-        } else {
-
+        } else{
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
             return redirect()->back();
         }
