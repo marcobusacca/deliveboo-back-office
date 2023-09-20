@@ -1,5 +1,5 @@
 <!-- Header Navbar -->
-<nav class="top-bar navbar navbar-expand-md navbar-light shadow">
+<nav class="navbar navbar-expand-md navbar-light shadow p-0 h-100">
     <div class="container-fluid px-5">
         <div class="row w-100">
             <div class="col-6">

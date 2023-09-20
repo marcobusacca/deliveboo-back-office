@@ -75,10 +75,8 @@
                         </div>
                     </nav>
                     <!-- Main Content -->
-                    <div class="container-fluid p-0">
-                        <div class="background-image p-5 w-100 h-100">
-                            @yield('content')
-                        </div>
+                    <div class="main-content p-5">
+                        @yield('content')
                     </div>
                 </div>
             </main>
