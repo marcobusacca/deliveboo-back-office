@@ -10,17 +10,23 @@
 
 // HEADER
 header {
-    width: 100%;
-    height: 80px;
-    background-color: #FF8100;
-}
-
-.admin-header {
     position: fixed;
-}
+    z-index: 1;
+    width: 100%;
+    background-color: #FF8100;
 
-.logo-deliveboo {
-    width: 150px;
+    .navbar-container-fluid {
+        padding: 0 20px;
+
+        .logo-deliveboo {
+            width: 150px;
+        }
+
+        .nav-item {
+            text-align: center;
+        }
+    }
+
 }
 
 // END HEADER
@@ -113,3 +119,28 @@ header {
 }
 
 // END UTILITIES
+
+
+// MEDIAQUERY
+
+// MOBILE
+@media screen and (min-width: 320px) {}
+
+// DESKTOP
+@media screen and (min-width: 992px) {
+    header {
+        height: 80px;
+
+        .navbar-container-fluid {
+            padding: 0 3rem;
+
+            .navbar-nav {
+                width: 100%;
+                justify-content: end;
+            }
+        }
+    }
+
+}
+
+// END MEDIAQUERY
