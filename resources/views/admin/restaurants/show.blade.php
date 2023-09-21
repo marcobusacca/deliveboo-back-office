@@ -12,7 +12,7 @@
             </div>
             @if (session('message'))
                 <!-- Confirm Message -->
-                <div class="col-6 mt-5">
+                <div class="col-12 col-lg-6 mt-5">
                     <div class="alert alert-success">
                         <i class="fa-solid fa-circle-info"></i>
                         <span>{{ session('message') }}</span>
