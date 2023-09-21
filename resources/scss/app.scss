@@ -90,8 +90,7 @@ header {
     height: 100vh;
 
     .errors-background {
-        background-image: url('../img/errors/404-background.png');
-        background-position: center;
+        display: none;
     }
 
     .error-title {
@@ -196,6 +195,21 @@ header {
     }
 
     // END LAYOUT ADMIN MAIN
+
+    // ERROR PAGE
+
+    .error-main {
+        font-family: 'Montserrat', sans-serif;
+        height: 100vh;
+
+        .errors-background {
+            display: block;
+            background-image: url('../img/errors/404-background.png');
+            background-position: center;
+        }
+    }
+
+    // END ERROR PAGE
 
     // MODAL PRODUCT DELETE
 

@@ -22,9 +22,9 @@
             <main class="error-main">
                 <div class="container-fluid h-100">
                     <div class="row h-100">
-                        <div class="col-8 errors-background h-100">
+                        <div class="col-12 col-lg-8 errors-background h-100">
                         </div>
-                        <div class="col-4 h-100">
+                        <div class="col-12 col-lg-4 h-100">
                             <div class="row flex-column justify-content-between pt-5 h-100">
                                 <div class="col-12 text-center py-5">
                                     <h1 class="error-title text-orange fw-bold my-3">404</h1>

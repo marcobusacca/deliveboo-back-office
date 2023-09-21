@@ -50,7 +50,7 @@
                             @endif
                             @else
                                 <!-- Logout Link -->
-                                <li class="list-group-item fw-bold text-white py-5">
+                                <li class="list-group-item fw-bold text-white">
                                     <!-- Logout Button -->
                                     <a class="text-white text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
