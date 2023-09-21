@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row">
             <!-- Redirect To Restaurants List -->
-            <div class="col-12">
+            <div class="col-12 redirect-back-btn">
                 <a href="{{ route('admin.restaurants.index') }}" class="bg-black btn btn-dark rounded-5">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Torna indietro</span>
@@ -20,7 +20,7 @@
                 </div>
             @endif
             <!-- Card User Restaurant -->
-            <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="col-12 d-flex justify-content-center align-items-center my-3">
                 <div class="card shadow bg-body-tertiary" style="width: 35rem">
                     <!-- Restaurant Cover Image -->
                     <div class="card-header">

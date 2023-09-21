@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <!-- Redirect To Restaurants List -->
-            <div class="col-12">
+            <div class="col-12 redirect-back-btn">
                 <a href="{{ route('admin.restaurants.index') }}" class="bg-black btn btn-dark rounded-5">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Torna indietro</span>

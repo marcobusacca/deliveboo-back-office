@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <!-- Redirect To Products List -->
-            <div class="col-12">
+            <div class="col-12 redirect-back-btn">
                 <a href="{{ route('admin.products.index') }}" class="bg-black btn btn-dark rounded-5">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Torna alla lista dei prodotti</span>
@@ -20,7 +20,7 @@
                 </div>
             @endif
             <!-- Card Restaurant Product -->
-            <div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="col-12 d-flex justify-content-center align-items-center my-3">
                 <div class="card shadow bg-body-tertiary" style="width: 35rem">
                     <!-- Product Cover Image -->
                     <div class="card-header">
