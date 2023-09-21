@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <!-- Redirect To Products List -->
-            <div class="col-12">
+            <div class="col-12 redirect-back-btn">
                 <a href="{{ route('admin.products.index') }}" class="bg-black btn btn-dark rounded-5">
                     <i class="fa-solid fa-arrow-left"></i>
                     <span>Torna alla lista dei prodotti</span>

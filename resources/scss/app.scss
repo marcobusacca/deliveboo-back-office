@@ -13,6 +13,7 @@ header {
     position: fixed;
     z-index: 1;
     width: 100%;
+    height: 80px;
     background-color: #FF8100;
 
     .navbar-container-fluid {
@@ -22,8 +23,8 @@ header {
             width: 150px;
         }
 
-        .nav-item {
-            text-align: center;
+        .navbar-item {
+            display: none;
         }
     }
 
@@ -37,9 +38,7 @@ header {
 .admin-main {
     padding-top: 80px;
 
-    .sidebar {
-        width: 300px;
-        height: calc(100vh - 80px);
+    .mobile-sidebar {
         background-color: #FF8100;
 
         .list-group-item {
@@ -51,14 +50,26 @@ header {
         }
     }
 
+    .desktop-sidebar {
+        display: none;
+    }
+
     .main-content {
         background-image: url('../img/background/background.png');
-        width: calc(100% - 300px);
+        width: 100%;
         height: calc(100vh - 80px);
         overflow-y: auto;
+        padding: 10px;
+
+        .redirect-back-btn {
+            display: none;
+        }
+
+        .products-tools-btn {
+            margin: 5px 0;
+        }
     }
 }
-
 
 // END LAYOUT ADMIN MAIN
 
@@ -95,6 +106,15 @@ header {
 // END ERROR PAGE
 
 
+// MODAL PRODUCT DELETE
+
+#productConfirmDeleteModal {
+    padding: 80px 0;
+}
+
+// END MODAL PRODUCT DELETE
+
+
 // UTILITIES
 
 .deliv-orange {
@@ -121,16 +141,16 @@ header {
 // END UTILITIES
 
 
-// MEDIAQUERY
+/********** MEDIAQUERY **********/
 
-// MOBILE
-@media screen and (min-width: 320px) {}
+// TABLET
 
 // DESKTOP
 @media screen and (min-width: 992px) {
-    header {
-        height: 80px;
 
+    // HEADER
+
+    header {
         .navbar-container-fluid {
             padding: 0 3rem;
 
@@ -141,6 +161,50 @@ header {
         }
     }
 
+    // END HEADER
+
+
+    // LAYOUT ADMIN MAIN
+
+    .admin-main {
+        .desktop-sidebar {
+            display: block;
+            width: 300px;
+            height: calc(100vh - 80px);
+            background-color: #FF8100;
+
+            .list-group-item {
+                background-color: transparent;
+
+                i {
+                    width: 15px;
+                }
+            }
+        }
+
+        .main-content {
+            padding: 3rem;
+
+            .redirect-back-btn {
+                display: block;
+            }
+
+            .products-tools-btn {
+                margin: 0;
+            }
+        }
+    }
+
+    // END LAYOUT ADMIN MAIN
+
+    // MODAL PRODUCT DELETE
+
+    #productConfirmDeleteModal {
+        padding: 0;
+    }
+
+    // END MODAL PRODUCT DELETE
+
 }
 
-// END MEDIAQUERY
+/********** END MEDIAQUERY **********/
