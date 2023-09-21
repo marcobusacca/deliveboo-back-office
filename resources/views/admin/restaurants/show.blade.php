@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <!-- Redirect To Restaurants List -->
             <div class="col-12 redirect-back-btn">
                 <a href="{{ route('admin.restaurants.index') }}" class="bg-black btn btn-dark rounded-5">
