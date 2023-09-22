@@ -3,6 +3,15 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if (session('error'))
+                <!-- Operation not Authorized Message -->
+                <div class="col-12 mt-5">
+                    <div class="alert alert-danger">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>{{ session('error') }}</span>
+                    </div>
+                </div>
+            @endif
             <!-- Restaurant Create Form -->
             <div class="col-12 my-3">
                 <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="card shadow bg-body-tertiary p-2">

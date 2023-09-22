@@ -29,7 +29,7 @@ class ProductController extends Controller
         else{ // L'UTENTE NON HA UN RISTORANTE
             
             // REDIRECTO L'UTENTE ALLA CREATE DEL RISTORANTE
-            return redirect()->route('admin.restaurants.create');
+            return redirect()->route('admin.restaurants.create')->with('error', "Operazione non autorizzata");
         }
 
         $products = Product::where('restaurant_id', $restaurant_id)->get();
@@ -63,12 +63,12 @@ class ProductController extends Controller
             } else{
 
                 // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-                return redirect()->back();
+                return redirect()->back()->with('error', "Operazione non autorizzata");
             }
 
         } else{
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-            return redirect()->back();
+            return redirect()->back()->with('error', "Operazione non autorizzata");
         }
     }
 
@@ -86,7 +86,7 @@ class ProductController extends Controller
         if(!isset($user->restaurant)){
 
             // REDIRECTO L'UTENTE ALLA CREATE DEL RISTORANTE
-            return redirect()->route('admin.restaurants.create');
+            return redirect()->route('admin.restaurants.create')->with('error', "Operazione non autorizzata");
         }
 
         return view('admin.products.create');
@@ -157,12 +157,12 @@ class ProductController extends Controller
             } else{
     
                 // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-                return redirect()->back();
+                return redirect()->back()->with('error', "Operazione non autorizzata");
             }
 
         } else{
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-            return redirect()->back();
+            return redirect()->back()->with('error', "Operazione non autorizzata");
         }
     }
 

@@ -3,9 +3,18 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if (session('error'))
+                <!-- Operation not Authorized Message -->
+                <div class="col-12 p-0 mt-5">
+                    <div class="alert alert-danger">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>{{ session('error') }}</span>
+                    </div>
+                </div>
+            @endif
             @if (session('message'))
                 <!-- Confirm Message -->
-                <div class="col-12 mt-5">
+                <div class="col-12 p-0 mt-5">
                     <div class="alert alert-success">
                         <i class="fa-solid fa-circle-info"></i>
                         <span>{{ session('message') }}</span>

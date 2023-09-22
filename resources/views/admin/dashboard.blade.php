@@ -5,6 +5,15 @@
     <div class="container">
         <!-- Dashboard Row -->
         <div class="row justify-content-center">
+            @if (session('error'))
+                <!-- Operation not Authorized Message -->
+                <div class="col-12 mt-5">
+                    <div class="alert alert-danger">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>{{ session('error') }}</span>
+                    </div>
+                </div>
+            @endif
             <!-- Dashboard Col -->
             <div class="col-12">
                 <!-- Dashboard Card -->
@@ -47,7 +56,7 @@
                     @if (!isset(Auth::user()->restaurant))
                         <!-- Card Redirect to Restaurant Create -->
                         <div class="text-center my-5">
-                            <a href="{{ Route('admin.restaurants.index') }}" class="btn btn-success button-color mx-3">Completa il tuo profilo</a>
+                            <a href="{{ Route('admin.restaurants.create') }}" class="btn btn-success button-color mx-3">Completa il tuo profilo</a>
                         </div>
                     @endif
                     {{-- @if (session('status'))
