@@ -10,7 +10,7 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="row mb-4">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">E-mail</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">E-mail *</label>
                                 <div class="col-12">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                     @error('email')
@@ -21,9 +21,9 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Password *</label>
                                 <div class="col-12 mb-4">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" minlength="8">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
