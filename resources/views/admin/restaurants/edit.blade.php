@@ -30,7 +30,7 @@
             @endif
             <!-- Restaurant Edit Form -->
             <div class="col-12 my-3">
-                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" enctype="multipart/form-data" class="card shadow bg-body-tertiary p-2">
+                <form action="{{ route('admin.restaurants.update', $restaurant) }}" method="POST" enctype="multipart/form-data" id="editRestaurantForm" class="card shadow bg-body-tertiary p-2">
                     @csrf
                     @method('PUT')
                     <!-- Card Header -->
@@ -93,6 +93,7 @@
                                 </div>
                             @endforeach
                             <!-- Types Error Text -->
+                            <div id="editRestaurantTypeError" class="text-danger"></div>
                             @error('types')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
