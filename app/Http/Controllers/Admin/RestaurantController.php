@@ -30,7 +30,7 @@ class RestaurantController extends Controller
         else{ // L'UTENTE NON HA UN RISTORANTE
             
             // REDIRECTO L'UTENTE ALLA CREATE
-            return redirect()->route('admin.restaurants.create');
+            return redirect()->route('admin.restaurants.create')->with('error', "Operazione non autorizzata");
         }
         
         return view('admin.restaurants.index', compact('restaurant'));
@@ -56,7 +56,7 @@ class RestaurantController extends Controller
         } else {
 
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-            return redirect()->back();
+            return redirect()->back()->with('error', "Operazione non autorizzata");
         }
     }
 
@@ -74,7 +74,7 @@ class RestaurantController extends Controller
         if(isset($user->restaurant)){
 
             // REDIRECTO L'UTENTE ALLA INDEX
-            return redirect()->route('admin.restaurants.index');
+            return redirect()->route('admin.restaurants.index')->with('error', "Operazione non autorizzata");
         }
 
         // IMPORTO TUTTE LE TIPOLOGIE
@@ -154,7 +154,7 @@ class RestaurantController extends Controller
         } else {
 
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-            return redirect()->back();
+            return redirect()->back()->with('error', "Operazione non autorizzata");
         }
     }
 

@@ -37,14 +37,14 @@
                                         <!-- Dashboard Text -->
                                         <span>Dashboard</span>
                                     </a>
-                                    <!-- Il tuo ristorante -->
-                                    <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2">
-                                        <!-- Il tuo ristorante Icon -->
-                                        <i class="fa-solid fa-utensils me-2"></i>
-                                        <!-- Il tuo ristorante Text -->
-                                        <span>Il tuo ristorante</span>
-                                    </a>
                                     @if (isset(Auth::user()->restaurant))
+                                        <!-- Il tuo ristorante -->
+                                        <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2">
+                                            <!-- Il tuo ristorante Icon -->
+                                            <i class="fa-solid fa-utensils me-2"></i>
+                                            <!-- Il tuo ristorante Text -->
+                                            <span>Il tuo ristorante</span>
+                                        </a>
                                         <!-- Il tuo menù -->
                                         <a href="{{ route('admin.products.index') }}" class="list-group-item fw-bold text-white py-2">
                                             <!-- Il tuo menù Icon -->
@@ -115,14 +115,14 @@
                                 <!-- Dashboard Text -->
                                 <span>Dashboard</span>
                             </a>
-                            <!-- Il tuo ristorante -->
-                            <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2">
-                                <!-- Il tuo ristorante Icon -->
-                                <i class="fa-solid fa-utensils me-2"></i>
-                                <!-- Il tuo ristorante Text -->
-                                <span>Il tuo ristorante</span>
-                            </a>
                             @if (isset(Auth::user()->restaurant))
+                                <!-- Il tuo ristorante -->
+                                <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2">
+                                    <!-- Il tuo ristorante Icon -->
+                                    <i class="fa-solid fa-utensils me-2"></i>
+                                    <!-- Il tuo ristorante Text -->
+                                    <span>Il tuo ristorante</span>
+                                </a>
                                 <!-- Il tuo menù -->
                                 <a href="{{ route('admin.products.index') }}" class="list-group-item fw-bold text-white py-2">
                                     <!-- Il tuo menù Icon -->

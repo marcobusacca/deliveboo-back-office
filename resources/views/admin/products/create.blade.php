@@ -10,6 +10,15 @@
                     <span>Torna alla lista dei prodotti</span>
                 </a>
             </div>
+            @if (session('error'))
+                <!-- Operation not Authorized Message -->
+                <div class="col-12 mt-5">
+                    <div class="alert alert-danger">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>{{ session('error') }}</span>
+                    </div>
+                </div>
+            @endif
             <!-- Product Create Form -->
             <div class="col-12 my-3">
                 <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" class="card shadow bg-body-tertiary p-2">
