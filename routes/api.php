@@ -24,6 +24,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/contacts', [LeadController::class, 'store']);
 Route::get('/types', [TypeController::class, 'index']);
+Route::get('/types/{type_id}', [TypeController::class, 'show']);
 Route::get('/restaurants', [RestaurantController::class, 'index']);
-Route::get('/types/{type_id}', [RestaurantController::class, 'show']);
 Route::get('/restaurants/{restaurant_id}/products', [ProductController::class, 'index']);

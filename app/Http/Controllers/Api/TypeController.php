@@ -15,4 +15,12 @@ class TypeController extends Controller
             'results'   => $types
         ]);
     }
+
+    public function show($type_id){
+        $type = Type::with('restaurants')->findOrFail($type_id);
+        return response()->json([
+            'success' => true,
+            'results' => $type
+        ]);
+    }
 }
