@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LeadController as LeadController;
 use App\Http\Controllers\Api\TypeController as TypeController;
 use App\Http\Controllers\Api\RestaurantController as RestaurantController;
-
+use App\Http\Controllers\Api\ProductController as ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +26,4 @@ Route::post('/contacts', [LeadController::class, 'store']);
 Route::get('/types', [TypeController::class, 'index']);
 Route::get('/restaurants', [RestaurantController::class, 'index']);
 Route::get('/types/{type_id}', [RestaurantController::class, 'show']);
+Route::get('/restaurants/{restaurant_id}/products', [ProductController::class, 'index']);
