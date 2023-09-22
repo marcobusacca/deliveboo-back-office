@@ -14,7 +14,7 @@
             @endif
             <!-- Restaurant Create Form -->
             <div class="col-12 my-3">
-                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" class="card shadow bg-body-tertiary p-2">
+                <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data" id="createRestaurantForm" class="card shadow bg-body-tertiary p-2">
                     @csrf
                     <!-- Card Header -->
                     <div class="card-header bg-white py-3">
@@ -69,6 +69,7 @@
                                 </div>
                             @endforeach
                             <!-- Types Error Text -->
+                            <div id="createRestaurantTypeError" class="text-danger"></div>
                             @error('types')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror

@@ -5,6 +5,62 @@ import.meta.glob([
     '../img/**'
 ])
 
+
+/** VALIDAZIONE FRONT-END TIPOLOGIE SELEZIONATE DURANTE CREATE_RESTAURANT_FORM ********************************/
+
+// CONTROLLO CHE IL CREATE_RESTAURANT_FORM ESISTE
+if (document.getElementById('createRestaurantForm') !== null) {
+
+    // SELEZIONO IL CREATE_RESTAURANT_FORM, E GLI AGGIUNTO UN EVENT_LISTENER SUBMIT_FORM
+    document.getElementById('createRestaurantForm').addEventListener('submit', function (event) {
+
+        // SELEZIONO TUTTI GLI INPUT CHECKBOX DELLE TIPOLOGIE
+        var checkboxes = document.querySelectorAll('input[name="types[]"]:checked');
+
+        if (checkboxes.length === 0) { // NESSUNA TIPOLOGIA SELEZIONATA, MOSTRA UN MESSAGGIO DI ERRORE
+
+            document.getElementById('createRestaurantTypeError').textContent = 'Devi selezionare almeno una Tipologia';
+
+            // IMPEDISCE L'INVIO DEL CREATE_RESTAURANT_FORM
+            event.preventDefault();
+
+        } else { // ALMENO UNA TIPOLOGIA SELEZIONATA, CANCELLA EVENTUALI MESSAGGI DI ERRORE
+
+            document.getElementById('createRestaurantTypeError').textContent = '';
+        }
+    });
+}
+
+
+/** VALIDAZIONE FRONT-END TIPOLOGIE SELEZIONATE DURANTE EDIT_RESTAURANT_FORM ********************************/
+
+// CONTROLLO CHE L'EDIT_RESTAURANT_FORM ESISTE
+if (document.getElementById('editRestaurantForm') !== null) {
+
+    // SELEZIONO L'EDIT_RESTAURANT_FORM, E GLI AGGIUNTO UN EVENT_LISTENER SUBMIT_FORM
+    document.getElementById('editRestaurantForm').addEventListener('submit', function (event) {
+
+        // SELEZIONO TUTTI GLI INPUT CHECKBOX DELLE TIPOLOGIE
+        var checkboxes = document.querySelectorAll('input[name="types[]"]:checked');
+
+        if (checkboxes.length === 0) { // NESSUNA TIPOLOGIA SELEZIONATA, MOSTRA UN MESSAGGIO DI ERRORE
+
+            document.getElementById('editRestaurantTypeError').textContent = 'Devi selezionare almeno una Tipologia';
+
+            // IMPEDISCE L'INVIO DELL'EDIT_RESTAURANT_FORM
+            event.preventDefault();
+
+        } else { // ALMENO UNA TIPOLOGIA SELEZIONATA, CANCELLA EVENTUALI MESSAGGI DI ERRORE
+
+            document.getElementById('editRestaurantTypeError').textContent = '';
+        }
+    });
+}
+
+
+/** MODALE BOOTSTRAP CANCELLAZIONE PRODOTTO DEL RISTORANTE ********************************/
+
+
 // RECUPERO TUTTI I DELETE_BUTTON DI OGNI PRODOTTO
 const productDeleteButton = document.querySelectorAll('.product-delete-button');
 
