@@ -10,12 +10,12 @@
                     <span>Torna alla lista dei prodotti</span>
                 </a>
             </div>
-            @if (session('message'))
-                <!-- Confirm Message -->
-                <div class="col-12 col-lg-6 mt-5">
-                    <div class="alert alert-success">
+            @if (session('error'))
+                <!-- Operation not Authorized Message -->
+                <div class="col-12 mt-5">
+                    <div class="alert alert-danger">
                         <i class="fa-solid fa-circle-info"></i>
-                        <span>{{ session('message') }}</span>
+                        <span>{{ session('error') }}</span>
                     </div>
                 </div>
             @endif
