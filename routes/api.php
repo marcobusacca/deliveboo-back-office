@@ -26,4 +26,5 @@ Route::post('/contacts', [LeadController::class, 'store']);
 Route::get('/types', [TypeController::class, 'index']);
 Route::get('/types/{type_id}', [TypeController::class, 'show']);
 Route::get('/restaurants', [RestaurantController::class, 'index']);
+Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
 Route::get('/restaurants/{restaurant_id}/products', [ProductController::class, 'index']);
