@@ -41,13 +41,31 @@ header {
     .mobile-sidebar {
         background-color: #FF8100;
 
-        .list-group-item {
-            background-color: transparent;
+        .list-group {
 
-            i {
-                width: 15px;
+            &:hover {
+                .active-sidebar-route {
+                    background-color: transparent;
+                }
+            }
+
+            .list-group-item {
+                background-color: transparent;
+
+                &:hover {
+                    background-color: #964b00;
+                }
+
+                i {
+                    width: 15px;
+                }
+            }
+
+            .active-sidebar-route {
+                background-color: #964b00;
             }
         }
+
     }
 
     .desktop-sidebar {
@@ -72,6 +90,31 @@ header {
 }
 
 // END LAYOUT ADMIN MAIN
+
+
+// ADMIN DASHBOARD
+
+.instructions {
+    .dashboard-link {
+
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// END ADMIN DASHBOARD
+
+
+// MODAL PRODUCT DELETE
+
+#productConfirmDeleteModal {
+    padding: 80px 0;
+}
+
+// END MODAL PRODUCT DELETE
 
 
 // REGISTER FORM
@@ -103,15 +146,6 @@ header {
 }
 
 // END ERROR PAGE
-
-
-// MODAL PRODUCT DELETE
-
-#productConfirmDeleteModal {
-    padding: 80px 0;
-}
-
-// END MODAL PRODUCT DELETE
 
 
 // UTILITIES
@@ -172,11 +206,28 @@ header {
             height: calc(100vh - 80px);
             background-color: #FF8100;
 
-            .list-group-item {
-                background-color: transparent;
+            .list-group {
 
-                i {
-                    width: 15px;
+                &:hover {
+                    .active-sidebar-route {
+                        background-color: transparent;
+                    }
+                }
+
+                .list-group-item {
+                    background-color: transparent;
+
+                    &:hover {
+                        background-color: #964b00;
+                    }
+
+                    i {
+                        width: 15px;
+                    }
+                }
+
+                .active-sidebar-route {
+                    background-color: #964b00;
                 }
             }
         }
