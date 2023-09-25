@@ -5,13 +5,46 @@ import.meta.glob([
     '../img/**'
 ])
 
+/** VALIDAZIONE FRONT-END PASSWORD E CONFERMA PASSWORD REGISTER_USER_FORM *************************************/
+
+// CONTROLLO CHE IL REGISTER_USER_FORM ESISTE
+if (document.getElementById('registerUserForm') !== null) {
+
+    // SELEZIONO IL REGISTER_USER_FORM, E GLI AGGIUNGO UN EVENT_LISTENER SUBMIT_FORM
+    document.getElementById('registerUserForm').addEventListener('submit', function (event) {
+
+        // RECUPERO IL VALUE DEL CAMPO PASSWORD
+        const password = document.getElementById('password').value;
+
+        // RECUPERO IL VALUE DEL CAMPO CONFIRM_PASSWORD
+        const confirmPassword = document.getElementById('password-confirm').value;
+
+        // RECUPERO IL TAG HTML DOVE INSERIRE UN EVENTUALE MESSAGGIO DI ERRORE
+        const passwordErrorMessage = document.getElementById('password-error-message');
+
+        if (password === confirmPassword) {
+
+            // SVUOTO IL TAG HTML "PASSWORD_ERROR_MESSAGE"
+            passwordErrorMessage.textContent = '';
+
+        } else {
+            // INSERISCO IL MESSAGGIO DI ERRORE NEL TAG HTML "PASSWORD_ERROR_MESSAGE"
+            passwordErrorMessage.textContent = 'Le password non corrispondono';
+
+            // IMPEDISCE L'INVIO DEL REGISTER_USER_FORM
+            event.preventDefault();
+        }
+    })
+}
+
+
 
 /** VALIDAZIONE FRONT-END TIPOLOGIE SELEZIONATE DURANTE CREATE_RESTAURANT_FORM ********************************/
 
 // CONTROLLO CHE IL CREATE_RESTAURANT_FORM ESISTE
 if (document.getElementById('createRestaurantForm') !== null) {
 
-    // SELEZIONO IL CREATE_RESTAURANT_FORM, E GLI AGGIUNTO UN EVENT_LISTENER SUBMIT_FORM
+    // SELEZIONO IL CREATE_RESTAURANT_FORM, E GLI AGGIUNGO UN EVENT_LISTENER SUBMIT_FORM
     document.getElementById('createRestaurantForm').addEventListener('submit', function (event) {
 
         // SELEZIONO TUTTI GLI INPUT CHECKBOX DELLE TIPOLOGIE
@@ -37,7 +70,7 @@ if (document.getElementById('createRestaurantForm') !== null) {
 // CONTROLLO CHE L'EDIT_RESTAURANT_FORM ESISTE
 if (document.getElementById('editRestaurantForm') !== null) {
 
-    // SELEZIONO L'EDIT_RESTAURANT_FORM, E GLI AGGIUNTO UN EVENT_LISTENER SUBMIT_FORM
+    // SELEZIONO L'EDIT_RESTAURANT_FORM, E GLI AGGIUNGO UN EVENT_LISTENER SUBMIT_FORM
     document.getElementById('editRestaurantForm').addEventListener('submit', function (event) {
 
         // SELEZIONO TUTTI GLI INPUT CHECKBOX DELLE TIPOLOGIE
@@ -58,8 +91,7 @@ if (document.getElementById('editRestaurantForm') !== null) {
 }
 
 
-/** MODALE BOOTSTRAP CANCELLAZIONE PRODOTTO DEL RISTORANTE ********************************/
-
+/** MODALE BOOTSTRAP CANCELLAZIONE PRODOTTI DEL RISTORANTE ********************************/
 
 // RECUPERO TUTTI I DELETE_BUTTON DI OGNI PRODOTTO
 const productDeleteButton = document.querySelectorAll('.product-delete-button');
