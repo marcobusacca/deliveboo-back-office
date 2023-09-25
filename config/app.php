@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Deliveboo'),
+    'name' => env('APP_NAME', 'Deliveboo - gestisci il tuo ristorante'),
 
     /*
     |--------------------------------------------------------------------------

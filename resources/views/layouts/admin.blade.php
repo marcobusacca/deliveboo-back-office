@@ -7,7 +7,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Deliveboo') }}</title>
+        <title>{{ config('app.name', 'Deliveboo - gestisci il tuo ristorante') }}</title>
 
         <!-- Usando Vite -->
         @vite(['resources/js/app.js'])
