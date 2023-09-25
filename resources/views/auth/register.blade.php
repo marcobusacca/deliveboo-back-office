@@ -7,7 +7,7 @@
                 <div class="card shadow-lg bg-body-tertiary rounded">
                     <div class="card-header deliv-orange text-white text-center">Effettua la registrazione</div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" id="registerUserForm">
                             @csrf
                             <div class="row mb-4">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Nome *</label>
@@ -57,6 +57,7 @@
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Conferma password *</label>
                                 <div class="col-12">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"  minlength="8">
+                                    <span id="password-error-message" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="row my-5">

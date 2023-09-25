@@ -29,7 +29,9 @@
             <!-- Main Sidebar Mobile -->
             <div class="offcanvas offcanvas-start deliv-orange w-75" tabindex="-1" id="mobileSideBar" aria-labelledby="mobileSideBarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title text-white" id="mobileSideBarLabel">Deliveboo Menù</h5>
+                    <a href="{{ url('/') }}" class="text-decoration-none">
+                        <h5 class="offcanvas-title text-white" id="mobileSideBarLabel">Deliveboo</h5>
+                    </a>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body p-0">

@@ -24,14 +24,16 @@
                     <!-- Main Sidebar Mobile -->
                     <div class="offcanvas offcanvas-start deliv-orange w-75" tabindex="-1" id="mobileSideBar" aria-labelledby="mobileSideBarLabel">
                         <div class="offcanvas-header">
-                            <h5 class="offcanvas-title text-white" id="mobileSideBarLabel">Deliveboo Menù</h5>
+                            <a href="{{ url('/') }}" class="text-decoration-none">
+                                <h5 class="offcanvas-title text-white" id="mobileSideBarLabel">Deliveboo</h5>
+                            </a>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body p-0">
                             <div id="sidebarMenu" class="mobile-sidebar">
                                 <div class="list-group list-group-flush mt-4">
                                     <!-- Dashboard -->
-                                    <a href="{{ route('admin.dashboard') }}" class="list-group-item fw-bold text-white py-2">
+                                    <a href="{{ route('admin.dashboard') }}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.dashboard') active-sidebar-route @endif">
                                         <!-- Dashboard Icon -->
                                         <i class="fas fa-tachometer-alt fa-fw me-2"></i>
                                         <!-- Dashboard Text -->
@@ -39,14 +41,14 @@
                                     </a>
                                     @if (isset(Auth::user()->restaurant))
                                         <!-- Il tuo ristorante -->
-                                        <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2">
+                                        <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.restaurants.index') active-sidebar-route @endif">
                                             <!-- Il tuo ristorante Icon -->
                                             <i class="fa-solid fa-utensils me-2"></i>
                                             <!-- Il tuo ristorante Text -->
                                             <span>Il tuo ristorante</span>
                                         </a>
                                         <!-- Il tuo menù -->
-                                        <a href="{{ route('admin.products.index') }}" class="list-group-item fw-bold text-white py-2">
+                                        <a href="{{ route('admin.products.index') }}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.products.index') active-sidebar-route @endif">
                                             <!-- Il tuo menù Icon -->
                                             <i class="fa-solid fa-bell-concierge me-2"></i>
                                             <!-- Il tuo menù Text -->
@@ -91,7 +93,9 @@
                                     @endif
                                     @else
                                         <!-- Logout Link -->
-                                        <li class="list-group-item fw-bold text-white py-5">
+                                        <li class="list-group-item fw-bold text-white my-3">
+                                            <!-- Logout Icon -->
+                                            <i class="fas fa-door-open me-2"></i>
                                             <!-- Logout Button -->
                                             <a class="text-white text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
@@ -109,7 +113,7 @@
                     <div id="sidebarMenu" class="desktop-sidebar shadow">
                         <div class="list-group list-group-flush mt-4">
                             <!-- Dashboard -->
-                            <a href="{{ route('admin.dashboard') }}" class="list-group-item fw-bold text-white py-2">
+                            <a href="{{ route('admin.dashboard') }}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.dashboard') active-sidebar-route @endif">
                                 <!-- Dashboard Icon -->
                                 <i class="fas fa-tachometer-alt fa-fw me-2"></i>
                                 <!-- Dashboard Text -->
@@ -117,14 +121,14 @@
                             </a>
                             @if (isset(Auth::user()->restaurant))
                                 <!-- Il tuo ristorante -->
-                                <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2">
+                                <a href="{{ route('admin.restaurants.index') }}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.restaurants.index') active-sidebar-route @endif">
                                     <!-- Il tuo ristorante Icon -->
                                     <i class="fa-solid fa-utensils me-2"></i>
                                     <!-- Il tuo ristorante Text -->
                                     <span>Il tuo ristorante</span>
                                 </a>
                                 <!-- Il tuo menù -->
-                                <a href="{{ route('admin.products.index') }}" class="list-group-item fw-bold text-white py-2">
+                                <a href="{{ route('admin.products.index') }}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.products.index') active-sidebar-route @endif">
                                     <!-- Il tuo menù Icon -->
                                     <i class="fa-solid fa-bell-concierge me-2"></i>
                                     <!-- Il tuo menù Text -->
