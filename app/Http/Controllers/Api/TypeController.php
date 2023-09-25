@@ -20,7 +20,10 @@ class TypeController extends Controller
         $type = Type::with('restaurants')->findOrFail($type_id);
         return response()->json([
             'success' => true,
-            'results' => $type
+            'results' => [
+                'type' => $type,
+                'type_id' => $type->id,
+            ]
         ]);
     }
 }
