@@ -94,11 +94,13 @@
                                     @else
                                         <!-- Logout Link -->
                                         <li class="list-group-item fw-bold text-white my-3">
-                                            <!-- Logout Icon -->
-                                            <i class="fas fa-door-open me-2"></i>
                                             <!-- Logout Button -->
                                             <a class="text-white text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                            document.getElementById('logout-form').submit();">
+                                            <!-- Logout Icon -->
+                                            <i class="fas fa-door-open me-2"></i>
+                                            {{ __('Logout') }}
+                                            </a>
                                             <!-- Logout Form -->
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf
