@@ -46,7 +46,7 @@ return [
         'cover_image'   =>      'types_images/piadineria.png',
     ],
     [
-        'name'          =>      'Specialità di pesce',
+        'name'          =>      'Pesce',
         'cover_image'   =>      'types_images/specialità-pesce.png',
     ],
 
