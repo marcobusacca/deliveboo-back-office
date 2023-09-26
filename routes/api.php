@@ -23,8 +23,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/contacts', [LeadController::class, 'store']);
+
+// GET_RESTAURANT_TYPES
 Route::get('/types', [TypeController::class, 'index']);
+
+// SHOW_RESTAURANTS -> (WITH RESTAURANT_TYPES FILTER)
 Route::get('/types/{type_id}', [TypeController::class, 'show']);
+
 Route::get('/restaurants', [RestaurantController::class, 'index']);
+
+// GET RESTAURANTS WITH PRODUCTS
 Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
+
+
 Route::get('/restaurants/{restaurant_id}/products', [ProductController::class, 'index']);
