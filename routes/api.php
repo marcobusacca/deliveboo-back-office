@@ -29,6 +29,7 @@ Route::get('/types', [TypeController::class, 'index']);
 
 // GET_ALL_RESTAURANTS
 Route::get('/restaurants', [RestaurantController::class, 'index']);
+Route::get('/restaurants/types/{typeIds}', [RestaurantController::class, 'filterRestaurants']);
 
 // GET RESTAURANTS WITH PRODUCTS
 Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);

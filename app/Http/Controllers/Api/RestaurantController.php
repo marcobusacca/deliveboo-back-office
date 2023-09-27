@@ -20,7 +20,18 @@ class RestaurantController extends Controller
         ]);
     }
 
+    public function filterRestaurants($typeIds) {
+        $typeIdsArray = explode(',', $typeIds);
+        $restaurants = Restaurant::with('types')->whereHas('types', function($query) use ($typeIdsArray) {
+            $query->whereIn('id', $typeIdsArray);
+        })->get();
     
+        return response()->json([
+            'success' => true,
+            'results' => $restaurants
+        ]);
+    }
+
     public function show($slug){
 
         $restaurants = Restaurant::with('products')->where('slug', $slug)->first();
