@@ -27,9 +27,7 @@ Route::post('/contacts', [LeadController::class, 'store']);
 // GET_RESTAURANT_TYPES
 Route::get('/types', [TypeController::class, 'index']);
 
-// SHOW_RESTAURANTS -> (WITH RESTAURANT_TYPES FILTER)
-Route::get('/types/{type_id}', [TypeController::class, 'show']);
-
+// GET_ALL_RESTAURANTS
 Route::get('/restaurants', [RestaurantController::class, 'index']);
 
 // GET RESTAURANTS WITH PRODUCTS
