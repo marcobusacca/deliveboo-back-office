@@ -49,7 +49,9 @@ class RestaurantController extends Controller
     }
 
     public function show($slug){
-        $restaurant = Restaurant::where('slug', $slug)->with('products')->first();
+        $restaurant = Restaurant::where('slug', $slug)->with(['products' => function ($query){
+            $query->where('visible', true);
+        }])->first();
         
         return response()->json([
             'success'   => true,
