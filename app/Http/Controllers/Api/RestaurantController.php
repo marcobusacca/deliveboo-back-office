@@ -10,7 +10,10 @@ use App\Models\Type;
 class RestaurantController extends Controller
 {
     public function index(){
+
+        // RECUPERO TUTTI I RISTORANTI CON LE TIPOLOGIE ASSOCIATE
         $restaurants = Restaurant::with('types')->get();
+
         return response()->json([
             'success'   => true,
             'results'   => $restaurants
@@ -19,7 +22,9 @@ class RestaurantController extends Controller
 
     
     public function show($slug){
+
         $restaurants = Restaurant::with('products')->where('slug', $slug)->first();
+        
         return response()->json([
             'success'   => true,
             'results'   => $restaurants

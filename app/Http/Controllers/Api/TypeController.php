@@ -9,21 +9,13 @@ use Illuminate\Http\Request;
 class TypeController extends Controller
 {
     public function index(){
+
+        // RECUPERO TUTTE LE TIPOLOGIE DEI RISTORANTI
         $types = Type::all();
+
         return response()->json([
             'success'   => true,
             'results'   => $types
-        ]);
-    }
-
-    public function show($type_id){
-        $type = Type::with('restaurants')->findOrFail($type_id);
-        return response()->json([
-            'success' => true,
-            'results' => [
-                'type' => $type,
-                'type_id' => $type->id,
-            ]
         ]);
     }
 }
