@@ -48,13 +48,12 @@ class RestaurantController extends Controller
         ]);
     }
 
-    public function show($slug){
-
-        $restaurants = Restaurant::with('products')->where('slug', $slug)->first();
+    public function show($id){
+        $restaurant = Restaurant::where('id', $id)->with('products')->get();
         
         return response()->json([
             'success'   => true,
-            'results'   => $restaurants
+            'results'   => $restaurant
         ]);
     }
 }
