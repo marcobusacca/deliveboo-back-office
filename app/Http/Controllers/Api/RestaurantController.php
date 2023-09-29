@@ -12,7 +12,7 @@ class RestaurantController extends Controller
     public function index(){
 
         // RECUPERO TUTTI I RISTORANTI CON LE TIPOLOGIE ASSOCIATE
-        $restaurants = Restaurant::with('types')->get();
+        $restaurants = Restaurant::with('types')->paginate(5);
 
         return response()->json([
             'success'   => true,
@@ -40,7 +40,7 @@ class RestaurantController extends Controller
             
             $query->whereIn('type_id', $typeIdsArray);
 
-        }, '=', count($typeIdsArray))->get();
+        }, '=', count($typeIdsArray))->paginate(5);
     
         return response()->json([
             'success' => true,
