@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\LeadController as LeadController;
 use App\Http\Controllers\Api\TypeController as TypeController;
 use App\Http\Controllers\Api\RestaurantController as RestaurantController;
 use App\Http\Controllers\Api\ProductController as ProductController;
+use App\Http\Controllers\Api\PaymentController as PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/process-payment', [PaymentController::class, 'processPayment']);
 
 Route::post('/contacts', [LeadController::class, 'store']);
 
