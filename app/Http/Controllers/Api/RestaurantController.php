@@ -40,7 +40,7 @@ class RestaurantController extends Controller
             
             $query->whereIn('type_id', $typeIdsArray);
 
-        }, '=', count($typeIdsArray))->get();
+        }, '=', count($typeIdsArray))->paginate(10);
     
         return response()->json([
             'success' => true,
