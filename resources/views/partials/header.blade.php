@@ -32,7 +32,11 @@
                     <li class="nav-item">
                         <!-- Logout Button -->
                         <a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        document.getElementById('logout-form').submit();">
+                        <!-- Logout Icon -->
+                        <i class="fas fa-door-open me-2"></i>
+                        {{ __('Logout') }}
+                        </a>
                         <!-- Logout Form -->
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
