@@ -41,7 +41,6 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::get('/products/{product}/edit/delete-cover-image', [ProductController::class, 'deleteCoverImage'])->name('products.edit.delete-cover-image');
 });
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
