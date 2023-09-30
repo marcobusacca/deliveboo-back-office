@@ -60,7 +60,6 @@ class OrderController extends Controller
 
                 'success' => false,
                 'errors'  => $validator->errors(),
-                'payment_errors' => true,
 
                 /*
                     errors() Restituisce un Array in cui: 
