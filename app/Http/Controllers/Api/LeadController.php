@@ -20,9 +20,8 @@ class LeadController extends Controller
         $validator = Validator::make($form_data, [
 
             'name' => 'required',
+            'surname' => 'required',
             'email' => 'required|email',
-            'content' => 'required',
-
         ]);
 
         // VERIFICHIAMO SE LA VALIDAZIONE DELLA RICHIESTA NON VA A BUON FINE

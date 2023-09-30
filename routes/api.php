@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/process-payment', [PaymentController::class, 'processPayment']);
 
-Route::post('/contacts', [LeadController::class, 'store']);
+Route::post('/order/customer', [LeadController::class, 'store']);
 
 
 // GET_RESTAURANT_TYPES
