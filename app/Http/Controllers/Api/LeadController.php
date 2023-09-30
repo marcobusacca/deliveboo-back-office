@@ -57,7 +57,9 @@ class LeadController extends Controller
         return response()->json([
 
             'success' => true,
+            'results' => 'Il messaggio è andato a buon fine'
 
         ]);
     }
+
 }
