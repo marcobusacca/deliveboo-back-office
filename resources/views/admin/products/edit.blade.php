@@ -87,7 +87,7 @@
                         <!-- Product Visible Form Group -->
                         <div class="form-group my-4">
                             <!-- Visible Label -->
-                            <label class="control-label my-2">Visibilità del prodotto *</label>
+                            <label class="control-label my-2">Prodotto Disponibile *</label>
                             <!-- Visible Select -->
                             <select name="visible" id="visible" class="form-control @error('visible') is-invalid @enderror" required>
                                 <option value="">Scegli se rendere il Prodotto Visibile ai Clienti</option>
