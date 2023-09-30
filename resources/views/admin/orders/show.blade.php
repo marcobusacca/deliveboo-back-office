@@ -31,9 +31,6 @@
             <!-- Card Restaurant Order -->
             <div class="col-12 d-flex justify-content-center align-items-center my-3">
                 <div class="card shadow bg-body-tertiary" style="width: 35rem">
-                    <div class="card-header">
-                        <h3>Ordine #{{ $order->id }}</h3>
-                    </div>
                     <!-- Order Details -->
                     <div class="card-body">
                         <!-- Order Name and Surname -->

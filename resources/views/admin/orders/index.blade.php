@@ -26,7 +26,7 @@
                 <table class="table table-striped shadow bg-body-tertiary">
                     <thead>
                         <tr class="text-center">
-                            <th>N° Ordine</th>
+                            <th>ID</th>
                             <th>Stato</th>
                             <th>Totale</th>
                             <th>Strumenti</th>
@@ -41,7 +41,7 @@
                             @foreach ($orders as $order)
                                 <tr class="text-center">
                                     <!-- Order ID -->
-                                    <td>Ordine #{{ $order->id }}</td>
+                                    <td>{{ $order->id }}</td>
                                     <!-- Order Status -->
                                     <td>{{ $order->order_status }}</td>
                                     <!-- Order Total -->
