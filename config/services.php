@@ -13,14 +13,6 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
-    'braintree' => [
-        'model'  => App\User::class,
-        'environment' => env('BRAINTREE_ENVIRONMENT'),
-        'merchant_id' => env('BRAINTREE_MERCHANT_ID'),
-        'public_key' => env('BRAINTREE_PUBLIC_KEY'),
-        'private_key' => env('BRAINTREE_PRIVATE_KEY'),
-    ],
-    
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

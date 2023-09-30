@@ -54,22 +54,13 @@
                                             <!-- Il tuo menù Text -->
                                             <span>Il tuo menù</span>
                                         </a>
-                                        <!-- Work in Progress -->
-                                        <div class="list-group-item fw-bold text-center text-white py-2 mt-5">
-                                            <!-- Work in Progress Icon -->
-                                            <i class="fa-solid fa-triangle-exclamation"></i>
-                                            <!-- Work in Progress Text -->
-                                            <span>Work in Progress</span>
-                                            <!-- Work in Progress Icon -->
-                                            <i class="fa-solid fa-triangle-exclamation"></i>
-                                        </div>
                                         <!-- I tuoi ordini -->
-                                        <div class="list-group-item fw-bold text-white py-2">
+                                        <a href="{{ route('admin.orders.index')}}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.orders.index') active-sidebar-route @endif">
                                             <!-- I tuoi ordini Icon -->
                                             <i class="fa-solid fa-file-invoice-dollar me-2"></i>
                                             <!-- I tuoi ordini Text -->
                                             <span>I tuoi ordini</span>
-                                        </div>
+                                        </a>
                                         <!-- Statistiche ordini -->
                                         <div class="list-group-item fw-bold text-white py-2">
                                             <!-- Statistiche ordini Icon -->
@@ -136,22 +127,13 @@
                                     <!-- Il tuo menù Text -->
                                     <span>Il tuo menù</span>
                                 </a>
-                                <!-- Work in Progress -->
-                                <div class="list-group-item fw-bold text-center text-white py-2 mt-5">
-                                    <!-- Work in Progress Icon -->
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                    <!-- Work in Progress Text -->
-                                    <span>Work in Progress</span>
-                                    <!-- Work in Progress Icon -->
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                </div>
                                 <!-- I tuoi ordini -->
-                                <div class="list-group-item fw-bold text-white py-2">
+                                <a href="{{ route('admin.orders.index')}}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.orders.index') active-sidebar-route @endif">
                                     <!-- I tuoi ordini Icon -->
                                     <i class="fa-solid fa-file-invoice-dollar me-2"></i>
                                     <!-- I tuoi ordini Text -->
                                     <span>I tuoi ordini</span>
-                                </div>
+                                </a>
                                 <!-- Statistiche ordini -->
                                 <div class="list-group-item fw-bold text-white py-2">
                                     <!-- Statistiche ordini Icon -->

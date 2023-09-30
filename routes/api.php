@@ -8,8 +8,6 @@ use App\Http\Controllers\Api\TypeController as TypeController;
 
 use App\Http\Controllers\Api\RestaurantController as RestaurantController;
 
-use App\Http\Controllers\Api\PaymentController as PaymentController;
-
 use App\Http\Controllers\Api\OrderController as OrderController;
 
 use App\Http\Controllers\Api\LeadController as LeadController;
@@ -42,10 +40,6 @@ Route::get('/restaurants/{typeIds}', [RestaurantController::class, 'filterRestau
 
 // GET_RESTAURANT_PRODUCTS
 Route::get('/restaurants/{slug}/products', [RestaurantController::class, 'show']);
-
-
-// BRAIN-TREE API POST
-Route::post('/process-payment', [PaymentController::class, 'processPayment']);
 
 // ORDER-PAYMENT API POST
 Route::post('/order/payment', [OrderController::class, 'store']);
