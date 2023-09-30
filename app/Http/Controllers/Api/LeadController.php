@@ -61,5 +61,4 @@ class LeadController extends Controller
 
         ]);
     }
-
 }
