@@ -70,4 +70,64 @@ class OrderController extends Controller
             return redirect()->back()->with('error', "Operazione non autorizzata");
         }
     }
+
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+        return redirect()->back()->with('error', "Operazione non autorizzata");
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreOrderRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreOrderRequest $request)
+    {
+        // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+        return redirect()->back()->with('error', "Operazione non autorizzata");
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Order $order)
+    {
+        // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+        return redirect()->back()->with('error', "Operazione non autorizzata");
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateOrderRequest  $request
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateOrderRequest $request, Order $order)
+    {
+        // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+        return redirect()->back()->with('error', "Operazione non autorizzata");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Order  $order
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Order $order)
+    {
+        // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+        return redirect()->back()->with('error', "Operazione non autorizzata");
+    }
 }

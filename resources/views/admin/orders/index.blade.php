@@ -35,7 +35,7 @@
                     <tbody class="align-middle">
                         @if ($orders->isEmpty())
                             <tr class="text-center">
-                                <td>Non è stata effettuata nessun ordinazione</td>
+                                <td colspan="4" class="py-4">Non è stata effettuata nessun ordinazione</td>
                             </tr>   
                         @else
                             @foreach ($orders as $order)
