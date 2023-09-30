@@ -73,7 +73,7 @@ class OrderController extends Controller
             ]);
         }
 
-        if($form_data['card_number'] != '1234123412341234' || $form_data['expiry_date'] != '01/25' || $form_data['cvv'] != '123'){
+        if($form_data['card_number'] != '5370450087139650' || $form_data['expiry_date'] != '01/25' || $form_data['cvv'] != '230'){
 
             return response()->json([
 
