@@ -45,7 +45,7 @@
                                     <!-- Order Status -->
                                     <td>{{ $order->order_status }}</td>
                                     <!-- Order Total -->
-                                    <td>{{ $order->total }}</td>
+                                    <td>{{ $order->total }}€</td>
                                     <!-- Order Tools -->
                                     <td>
                                         <!-- Order Show Button -->
