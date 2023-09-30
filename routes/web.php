@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\RestaurantController as RestaurantController;
 
 use App\Http\Controllers\Admin\ProductController as ProductController;
 
+use App\Http\Controllers\Admin\OrderController as OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // PRODUCTS RESOURCE
     Route::resource('products', ProductController::class);
+
+    // ORDERS RESOURCE
+    Route::resource('orders', OrderController::class);
 
     // RESTAURANTS EDIT: DELETE-COVER-IMAGE
     Route::get('/restaurants/{restaurant}/edit/delete-cover-image', [RestaurantController::class, 'deleteCoverImage'])->name('restaurants.edit.delete-cover-image');

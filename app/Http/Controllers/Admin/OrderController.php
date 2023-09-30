@@ -16,28 +16,24 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
-    }
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        // CONTROLLO SE L'UTENTE HA UN RISTORANTE
+        if(isset($user->restaurant)){
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreOrderRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreOrderRequest $request)
-    {
-        //
+            // OTTENGO L'ID DEL RISTORANTE ASSOCIATO ALL'UTENTE
+            $restaurant_id = $user->restaurant->id;
+        }
+        else{ // L'UTENTE NON HA UN RISTORANTE
+            
+            // REDIRECTO L'UTENTE ALLA CREATE DEL RISTORANTE
+            return redirect()->route('admin.restaurants.create')->with('error', "Operazione non autorizzata");
+        }
+
+        $orders = Order::where('restaurant_id', $restaurant_id)->get();
+
+        return view('admin.orders.index', compact('orders'));
     }
 
     /**
@@ -48,40 +44,30 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
-    }
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
+        // RECUPERO IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
+        $restaurant = $user->restaurant;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateOrderRequest  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateOrderRequest $request, Order $order)
-    {
-        //
-    }
+        // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN ORDINE
+        if(isset($restaurant->orders)){
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
+            // CONTROLLO SE, L'ORDER CHE MI è STATO PASSATO, è UN ORDER APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
+            if($restaurant->orders->contains($order)){
+
+                // RITORNO LA SHOW DELL' ORDER
+                return view('admin.orders.show', compact('order'));
+
+            } else{
+
+                // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+                return redirect()->back()->with('error', "Operazione non autorizzata");
+            }
+
+        } else{
+            // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+            return redirect()->back()->with('error', "Operazione non autorizzata");
+        }
     }
 }
