@@ -13,17 +13,53 @@ class LeadController extends Controller
 {
     public function store(Request $request){
 
-        // RECUPERIAMO I DATI DELLA RICHIESTA DEL FORM
         $form_data = $request->all();
 
-        // SALVO I DATI NEL DATABASE
-        $newLead = new Lead();
+        // VALIDIAMO I DATI
+        $validator = Validator::make($form_data,
 
-        $newLead->fill($form_data);
+            // PARAMETRI DI VALIDAZIONE
+            [
+                'name' => 'required|max:50',
+                'surname' => 'required|max:50',
+                'email' => 'required|email',
+            ],
 
-        $newLead->save();
+            // MESSAGGI DI ERRORE
+            [
+                'name.required' => 'Il nome è obbligatorio',
+                'name.max' => 'Il nome deve avere una lunghezza massima di :max caratteri',
+
+                'surname.required' => 'Il cognome è obbligatorio',
+                'surname.max' => 'Il cognome deve avere una lunghezza massima di :max caratteri',
+
+                'email.required' => 'L\'email è obbligatoria',
+                'email.email' => 'Devi inserire un\'email valida',
+            ]
+        );
+
+        // VERIFICO SE LA RICHIESTA NON VA A BUON FINE
+        if($validator->fails()){
+
+            return response()->json([
+                'success' => false,
+                'errors' =>  $validator->errors()
+            ]);
+            
+        };
+
+        //SALVO I DATI NEL DATABASE
+        $new_lead = new Lead();
+
+        $new_lead->fill($form_data);
+
+        $new_lead->save();
 
         // INVIO LA MAIL
-        Mail::to('hello@example.com')->send(new NewContact($newLead));
+        Mail::to('support@deliveboo.it')->send(new NewContact($new_lead));
+
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

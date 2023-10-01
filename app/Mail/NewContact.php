@@ -34,7 +34,7 @@ class Contact extends Mailable
     {
         return new Envelope(
             replyTo: $this->lead->email,
-            subject: 'Nuovo contatto da form',
+            subject: 'Ordine effettuato con successo',
         );
     }
 
