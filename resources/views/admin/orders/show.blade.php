@@ -83,7 +83,7 @@
                                     @foreach ($order->products as $product)
                                         <div class="col-12 d-flex justify-content-between px-4 my-2">
                                             <!-- Product Name and Quantity -->
-                                            <span class="mx-1">• {{ $product->name }} x{{ $product->pivot->quantity }}</span>
+                                            <span class="mx-1">• {{ $product->pivot->quantity }} x {{ $product->name }}</span>
                                             <!-- Product SubTotal -->
                                             <span class="mx-1 fw-bold">{{ $product->pivot->sub_total }}€</span>
                                         </div>
