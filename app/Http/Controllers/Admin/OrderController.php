@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -82,13 +84,27 @@ class OrderController extends Controller
         // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN ORDINE
         if(isset($restaurant->orders) && count($restaurant->orders) != 0){
 
-            $chartData = Order::select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
-            ->where('created_at', '>=', Carbon::now()->subDays(30))
-            ->groupBy('date')
-            ->get();
+            $months = [];
+
+            for ($i = 1; $i <= 12; $i++) {
+                $monthDate = Carbon::createFromDate(2023, $i, 1);
+                $months[] = $monthDate->format('Y-m');
+            }
+
+            $orderData = Order::selectRaw('DATE_FORMAT(created_at, "%Y-%m") as month, COUNT(*) as total')
+            ->where('restaurant_id', $restaurant->id)
+            ->groupBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'))
+            ->orderBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'))
+            ->pluck('total', 'month');
+
+            $orderCounts = [];
+
+            foreach ($months as $month) {
+                $orderCounts[] = $orderData[$month] ?? 0;
+            }
 
             // RITORNO LA SHOW DELL' ORDER
-            return view('admin.orders.statistics', compact('chartData'));
+            return view('admin.orders.statistics', compact('months', 'orderCounts'));
 
         } else{
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA

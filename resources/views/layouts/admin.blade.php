@@ -9,6 +9,8 @@
 
         <title>{{ config('app.name', 'Deliveboo - gestisci il tuo ristorante') }}</title>
 
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
         <!-- Usando Vite -->
         @vite(['resources/js/app.js'])
     </head>

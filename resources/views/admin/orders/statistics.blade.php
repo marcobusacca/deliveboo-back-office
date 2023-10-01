@@ -29,19 +29,38 @@
                 </div>
             @endif
             <!-- Card Restaurant Order Statistics -->
-            <div class="col-12 d-flex justify-content-center align-items-center my-3">
-                <canvas id="orderStatisticsChart" width="400" height="400"></canvas>
+            <div class="col-12 d-flex justify-content-center align-items-center bg-white my-5">
+                <canvas id="orderChart"></canvas>
             </div>
         </div>
     </div>
 
     <script>
-        var ctx = document.getElementById('orderStatisticsChart').getContext('2d');
-        var data = {!! json_encode($chartData) !!}; // $chartData è un array con i dati del grafico provenienti dal controller
-
-        var myChart = new Chart(ctx, {
+        var ctx = document.getElementById('orderChart').getContext('2d');
+        var orderChart = new Chart(ctx, {
             type: 'bar',
-            data: data
+            data: {
+                labels: {!! json_encode($months) !!},
+                datasets: [{
+                    label: 'Numero di Ordini',
+                    data: {!! json_encode($orderCounts) !!},
+                }]
+            },
+            options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value, index, values) {
+                            // Mostra solo numeri interi
+                            if (Math.floor(value) === value) {
+                                return value;
+                            }
+                        }
+                    }
+                }
+            }
+            }
         });
     </script>
 @endsection
