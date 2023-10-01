@@ -41,9 +41,9 @@ Route::get('/restaurants/{typeIds}', [RestaurantController::class, 'filterRestau
 // GET_RESTAURANT_PRODUCTS
 Route::get('/restaurants/{slug}/products', [RestaurantController::class, 'show']);
 
+
 // ORDER-PAYMENT API POST
 Route::post('/order/payment', [OrderController::class, 'store']);
-
 
 // MAIL TRAP API POST
 Route::post('/contacts', [LeadController::class, 'store']);
