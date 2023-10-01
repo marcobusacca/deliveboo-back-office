@@ -72,34 +72,31 @@
                             <!-- Order Status Text -->
                             <span class="mx-1">{{ $order->order_status }}</span>
                         </div>
-                        <!-- Order Total -->
-                        <div class="mb-3">
-                            <!-- Order Total Icon -->
-                            <i class="fa-solid fa-money-bill"></i>
-                            <!-- Order Total Text -->
-                            <span class="mx-1">{{ $order->total }}€</span>
-                        </div>
-                        <!-- Order Products -->
-                        @foreach ($order->products as $index => $product)
-                            <div class="mb-3">
-                                <!-- Order Product Icon -->
-                                <i class="fa-solid fa-money-bill"></i>
-                                <!-- Order Product Text -->
-                                <span class="mx-1">{{ $product->name }}</span>
+                        @if (count($order->products) != 0)
+                            <!-- Order Product/s -->
+                            <div class="mt-4">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4 class="my-3">Riepilogo Ordine</h4>
+                                    </div>
+                                    <!-- Product/s Details -->
+                                    @foreach ($order->products as $product)
+                                        <div class="col-12 d-flex justify-content-between px-4 my-2">
+                                            <!-- Product Name and Quantity -->
+                                            <span class="mx-1">• {{ $product->name }} x{{ $product->pivot->quantity }}</span>
+                                            <!-- Product SubTotal -->
+                                            <span class="mx-1 fw-bold">{{ $product->pivot->sub_total }}€</span>
+                                        </div>
+                                    @endforeach
+                                    <!-- Order Total -->
+                                    <div class="col-12 text-center my-3">
+                                        <!-- Order Total Text -->
+                                        <h5 class="d-inline-block fs-5 my-3">Incasso totale:</h5>
+                                        <span class="fw-bold fs-5 mx-1">{{ $order->total }}€</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <!-- Order Quantity Icon -->
-                                <i class="fa-solid fa-money-bill"></i>
-                                <!-- Order Quantity Text -->
-                                <span class="mx-1">{{ $product }}</span>
-                            </div>
-                            <div class="mb-3">
-                                <!-- Order SubTotal Icon -->
-                                <i class="fa-solid fa-money-bill"></i>
-                                <!-- Order SubTotal Text -->
-                                <span class="mx-1">{{ $product }}€</span>
-                            </div>
-                        @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
