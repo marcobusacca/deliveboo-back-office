@@ -80,7 +80,7 @@ class OrderController extends Controller
         $restaurant = $user->restaurant;
 
         // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN ORDINE
-        if(isset($restaurant->orders)){
+        if(isset($restaurant->orders) && count($restaurant->orders) != 0){
 
             $orders = $restaurant->orders;
 
@@ -89,7 +89,7 @@ class OrderController extends Controller
 
         } else{
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-            return redirect()->back()->with('error', "Operazione non autorizzata");
+            return redirect()->back()->with('error', "Il tuo ristorante non ha ancora ricevuto ordini");
         }
     }
 
