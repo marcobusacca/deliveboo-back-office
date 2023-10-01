@@ -70,9 +70,7 @@
                             <!-- Order Status Icon -->
                             <i class="fa-solid fa-circle-info"></i>
                             <!-- Order Status Text -->
-                            @if ($order->order_status == 'In corso')
-                                <span class="mx-1 text-danger fw-bold">{{ $order->order_status }}</span>
-                            @endif
+                            <span class="mx-1">{{ $order->order_status }}</span>
                         </div>
                         <!-- Order Total -->
                         <div class="mb-3">

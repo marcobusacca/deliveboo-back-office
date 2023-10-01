@@ -14,7 +14,7 @@ class OrderController extends Controller
         // RECUPERIAMO I DATI DELLA RICHIESTA DEL FORM
         $form_data = $request->all();
 
-        // VALIDIAMO I DATI SENZA UTILIZZARE STORE_REQUEST
+        // VALIDIAMO I DATI
         $validator = Validator::make($form_data,
 
             // PARAMETRI DI VALIDAZIONE
@@ -72,6 +72,7 @@ class OrderController extends Controller
             ]);
         }
 
+        // VERIFICHIAMO SE I DATI DI PAGAMENTO INSERITI SONO CORRETTI
         if($form_data['card_number'] != '5370450087139650' || $form_data['expiry_date'] != '01/25' || $form_data['cvv'] != '230'){
 
             return response()->json([
@@ -90,20 +91,31 @@ class OrderController extends Controller
             ]);
         }
 
-        // SALVO I DATI NEL DATABASE
+        // SE L'ORDINE È ANDATO A BUON FINE, CREO UN NUOVO "ORDER" NELLA TABELLA "ORDERS" DEL DATABASE
         $newOrder = new Order();
 
-        $order_status = ['In corso', 'Consegnato'];
+        /*************************************************************************************/
 
+        // CREO L'ARRAY "ORDER_STATUS", CHE CONTIENE GLI STATI CHE PUO AVERE L'ORDINE
+        $order_status = ['In preparazione', 'In consegna', 'Consegnato'];
+
+        // FUNZIONE CHE GENERA UN NUMERO RANDOM TRA QUESTI: 0, 1, 2
+        function randomNumberForOrderStatus() {
+            return rand(0, 2);
+        }
         
+        // FACCIO GENERARE UN NUMERO RANDOM E LO SALVO SU "ORDER_STATUS_INDEX"
+        $OrderStatusIndex = randomNumberForOrderStatus();
 
-        $form_data['order_status'] = 'In corso';
+        /*************************************************************************************/
+
+        $form_data['order_status'] = $order_status[$OrderStatusIndex];
 
         $newOrder->fill($form_data);
 
         $newOrder->save();
 
-        // DIAMO UNA RISPOSTA ALL'UTENTE
+        // DIAMO UNA RISPOSTA DI BUON FINE ALL'UTENTE
         return response()->json([
 
             'success' => true,
