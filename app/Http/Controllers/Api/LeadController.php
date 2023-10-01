@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Lead;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\NewContact;
+use App\Mail\NewOrderForUser;
+use App\Mail\NewOrderForRestaurant;
 
 class LeadController extends Controller
 {
@@ -55,8 +56,11 @@ class LeadController extends Controller
 
         $new_lead->save();
 
-        // INVIO LA MAIL
-        Mail::to('support@deliveboo.it')->send(new NewContact($new_lead));
+        // INVIO LA MAIL AL CLIENTE
+        Mail::to($new_lead->email)->send(new NewOrderForUser($new_lead));
+
+        // INVIO LA MAIL AL RISTORANTE
+        Mail::to('ristorante@mail.it')->send(new NewOrderForRestaurant($new_lead));
 
         return response()->json([
             'success' => true
