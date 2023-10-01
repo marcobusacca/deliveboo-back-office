@@ -107,13 +107,43 @@ class OrderController extends Controller
         // FACCIO GENERARE UN NUMERO RANDOM E LO SALVO SU "ORDER_STATUS_INDEX"
         $OrderStatusIndex = randomNumberForOrderStatus();
 
-        /*************************************************************************************/
-
+        // INSERISCO DENTRO FORM_DATA->ORDER_STATUS, LO STATO DELL'ORDINE CASUALMENTE SCELTO
         $form_data['order_status'] = $order_status[$OrderStatusIndex];
+
+        /*************************************************************************************/
 
         $newOrder->fill($form_data);
 
         $newOrder->save();
+
+        // GESTIONE RELAZIONE MANY-TO-MANY (ORDERS - PRODUCTS)
+
+            // RECUPERO IL CARRELLO DAL FORM_DATA E LO SALVO SU "CART"
+            $cart = $form_data['cart'];
+
+            // CICLO IL CARRELLO, PER OGNI PRODOTTO CONTENUTO NEL CARRELLO VERRA FATTA UN'ITERAZIONE
+            foreach ($cart as $item) {
+
+                // SALVO L'ID DEL PRODOTTO DENTRO "ITEM_ID"
+                $itemId = $item['id'];
+                
+                // SALVO IL PREZZO DEL PRODOTTO DENTRO "PRICE"
+                $price = $item['price'];
+
+                // SALVO LA QUANTITA DEL PRODOTTO, SCELTA DALL'UTENTE, DENTRO "QUANTITY"
+                $quantity = $item['quantity'];
+
+                // CALCOLO IL SUB_TOTALE SPESO DALL'UTENTE, E LO SALVO SU "SUB_TOTAL"
+                $subTotal = $quantity * $price;
+            
+                // UTLIZZO IL METODO ATTACH() PER COLLEGARE IL PRODOTTO ALL'ORDINE, CON I DATI AGGIUNTIVI "QUANTITY" E "SUB_TOTAL"
+                $newOrder->products()->attach($itemId, [
+                    'quantity' => $quantity,
+                    'sub_total' => $subTotal,
+                ]);
+            }
+
+        //
 
         // DIAMO UNA RISPOSTA DI BUON FINE ALL'UTENTE
         return response()->json([
