@@ -43,7 +43,7 @@
                                 </li>
                                 <li class="py-2">
                                     <span>Visualizzare le statistiche dei tuoi ordini, dalla voce:</span>
-                                    <a href="" class="dashboard-link text-orange fw-bold">"Statistiche ordini"</a>
+                                    <a href="{{ route('admin.orders.statistics') }}" class="dashboard-link text-orange fw-bold">"Statistiche ordini"</a>
                                 </li>
                             </ul>
                         </div>

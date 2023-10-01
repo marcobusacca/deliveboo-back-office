@@ -39,6 +39,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     // ORDERS RESOURCE
     Route::resource('orders', OrderController::class);
 
+    // ORDERS STATISTICS
+    Route::get('/statistics', [OrderController::class, 'statisticsIndex'])->name('orders.statistics');
+
     // RESTAURANTS EDIT: DELETE-COVER-IMAGE
     Route::get('/restaurants/{restaurant}/edit/delete-cover-image', [RestaurantController::class, 'deleteCoverImage'])->name('restaurants.edit.delete-cover-image');
 

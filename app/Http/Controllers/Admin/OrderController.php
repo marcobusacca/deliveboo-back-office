@@ -71,7 +71,29 @@ class OrderController extends Controller
         }
     }
 
-        /**
+    public function statisticsIndex()
+    {
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // RECUPERO IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
+        $restaurant = $user->restaurant;
+
+        // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN ORDINE
+        if(isset($restaurant->orders)){
+
+            $orders = $restaurant->orders;
+
+            // RITORNO LA SHOW DELL' ORDER
+            return view('admin.orders.statistics', compact('orders'));
+
+        } else{
+            // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+            return redirect()->back()->with('error', "Operazione non autorizzata");
+        }
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

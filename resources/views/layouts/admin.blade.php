@@ -62,12 +62,12 @@
                                             <span>I tuoi ordini</span>
                                         </a>
                                         <!-- Statistiche ordini -->
-                                        <div class="list-group-item fw-bold text-white py-2">
+                                        <a href="{{ route('admin.orders.statistics')}}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.orders.statistics') active-sidebar-route @endif">
                                             <!-- Statistiche ordini Icon -->
                                             <i class="fa-solid fa-chart-line me-2"></i>
                                             <!-- Statistiche ordini Text -->
                                             <span>Statistiche ordini</span>
-                                        </div>
+                                        </a>
                                     @endif
                                     @guest
                                         <!-- Login Link -->
@@ -135,12 +135,12 @@
                                     <span>I tuoi ordini</span>
                                 </a>
                                 <!-- Statistiche ordini -->
-                                <div class="list-group-item fw-bold text-white py-2">
+                                <a href="{{ route('admin.orders.statistics')}}" class="list-group-item fw-bold text-white py-2 @if(Route::currentRouteName() == 'admin.orders.statistics') active-sidebar-route @endif">
                                     <!-- Statistiche ordini Icon -->
                                     <i class="fa-solid fa-chart-line me-2"></i>
                                     <!-- Statistiche ordini Text -->
                                     <span>Statistiche ordini</span>
-                                </div>
+                                </a>
                             @endif
                         </div>
                     </div>
