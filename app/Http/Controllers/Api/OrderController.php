@@ -93,6 +93,10 @@ class OrderController extends Controller
         // SALVO I DATI NEL DATABASE
         $newOrder = new Order();
 
+        $order_status = ['In corso', 'Consegnato'];
+
+        
+
         $form_data['order_status'] = 'In corso';
 
         $newOrder->fill($form_data);

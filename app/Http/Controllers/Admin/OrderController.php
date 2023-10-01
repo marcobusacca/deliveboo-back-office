@@ -31,7 +31,7 @@ class OrderController extends Controller
             return redirect()->route('admin.restaurants.create')->with('error', "Operazione non autorizzata");
         }
 
-        $orders = Order::where('restaurant_id', $restaurant_id)->get();
+        $orders = Order::where('restaurant_id', $restaurant_id)->orderByDesc('created_at')->get();
 
         return view('admin.orders.index', compact('orders'));
     }

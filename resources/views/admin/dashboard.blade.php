@@ -37,14 +37,9 @@
                                     <span>Visualizzare il tuo menù, inserire nuovi piatti, modificarli ed eventualmente eliminare quelli fuori menù, dalla voce:</span>
                                     <a href="{{ route('admin.products.index') }}" class="dashboard-link text-orange fw-bold">"Il tuo menù"</a>
                                 </li>
-                                <li class="list-unstyled py-2 mt-5">
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                    <span>Work in Progress</span>
-                                    <i class="fa-solid fa-triangle-exclamation"></i>
-                                </li>
                                 <li class="py-2">
                                     <span>Visualizzare gli ordini dei clienti, cliccando sulla voce:</span>
-                                    <a href="" class="dashboard-link text-orange fw-bold">"I tuoi ordini"</a>
+                                    <a href="{{ route('admin.orders.index') }}" class="dashboard-link text-orange fw-bold">"I tuoi ordini"</a>
                                 </li>
                                 <li class="py-2">
                                     <span>Visualizzare le statistiche dei tuoi ordini, dalla voce:</span>

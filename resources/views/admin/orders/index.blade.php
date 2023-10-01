@@ -27,7 +27,7 @@
                     <thead>
                         <tr class="text-center">
                             <th>ID</th>
-                            <th>Stato</th>
+                            <th>Data</th>
                             <th>Totale</th>
                             <th>Strumenti</th>
                         </tr>
@@ -43,7 +43,7 @@
                                     <!-- Order ID -->
                                     <td>{{ $order->id }}</td>
                                     <!-- Order Status -->
-                                    <td>{{ $order->order_status }}</td>
+                                    <td>{{ $order->created_at }}</td>
                                     <!-- Order Total -->
                                     <td>{{ $order->total }}€</td>
                                     <!-- Order Tools -->
