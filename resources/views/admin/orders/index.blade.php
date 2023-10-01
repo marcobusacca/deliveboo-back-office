@@ -26,8 +26,8 @@
                 <table class="table table-striped shadow bg-body-tertiary">
                     <thead>
                         <tr class="text-center">
-                            <th>ID</th>
                             <th>Data</th>
+                            <th>Stato</th>
                             <th>Totale</th>
                             <th>Strumenti</th>
                         </tr>
@@ -40,10 +40,10 @@
                         @else
                             @foreach ($orders as $order)
                                 <tr class="text-center">
-                                    <!-- Order ID -->
-                                    <td>{{ $order->id }}</td>
-                                    <!-- Order Status -->
+                                    <!-- Order Date -->
                                     <td>{{ $order->created_at }}</td>
+                                    <!-- Order Status -->
+                                    <td>{{ $order->order_status }}</td>
                                     <!-- Order Total -->
                                     <td>{{ $order->total }}€</td>
                                     <!-- Order Tools -->

@@ -32,7 +32,7 @@ class ProductController extends Controller
             return redirect()->route('admin.restaurants.create')->with('error', "Operazione non autorizzata");
         }
 
-        $products = Product::where('restaurant_id', $restaurant_id)->get();
+        $products = Product::where('restaurant_id', $restaurant_id)->orderBy('name')->get();
 
         return view('admin.products.index', compact('products'));
     }
