@@ -30,7 +30,18 @@
             @endif
             <!-- Card Restaurant Order Statistics -->
             <div class="col-12 d-flex justify-content-center align-items-center my-3">
+                <canvas id="orderStatisticsChart" width="400" height="400"></canvas>
             </div>
         </div>
     </div>
+
+    <script>
+        var ctx = document.getElementById('orderStatisticsChart').getContext('2d');
+        var data = {!! json_encode($chartData) !!}; // $chartData è un array con i dati del grafico provenienti dal controller
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: data
+        });
+    </script>
 @endsection

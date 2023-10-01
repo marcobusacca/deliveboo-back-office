@@ -82,10 +82,13 @@ class OrderController extends Controller
         // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN ORDINE
         if(isset($restaurant->orders) && count($restaurant->orders) != 0){
 
-            $orders = $restaurant->orders;
+            $chartData = Order::select(DB::raw('DATE(created_at) as date'), DB::raw('COUNT(*) as count'))
+            ->where('created_at', '>=', Carbon::now()->subDays(30))
+            ->groupBy('date')
+            ->get();
 
             // RITORNO LA SHOW DELL' ORDER
-            return view('admin.orders.statistics', compact('orders'));
+            return view('admin.orders.statistics', compact('chartData'));
 
         } else{
             // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
