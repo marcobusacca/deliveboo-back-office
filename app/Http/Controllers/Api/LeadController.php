@@ -5,10 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 use App\Models\Lead;
+
 use Illuminate\Support\Facades\Mail;
+
 use App\Mail\NewOrderForUser;
 use App\Mail\NewOrderForRestaurant;
+
+use App\Models\Restaurant;
+use App\Models\User;
 
 class LeadController extends Controller
 {
@@ -49,6 +55,7 @@ class LeadController extends Controller
             
         };
 
+
         //SALVO I DATI NEL DATABASE
         $new_lead = new Lead();
 
@@ -56,11 +63,22 @@ class LeadController extends Controller
 
         $new_lead->save();
 
+        $newLeadEmail = $new_lead->email;
+
+
+        $restaurant_id = $form_data['restaurant_id'];
+
+        $restaurant = Restaurant::where('id', $restaurant_id)->first();
+
+        $restaurantEmail = $restaurant->user->email;
+
+
         // INVIO LA MAIL AL CLIENTE
-        Mail::to($new_lead->email)->send(new NewOrderForUser($new_lead));
+        Mail::to($newLeadEmail)->send(new NewOrderForUser($new_lead));
 
         // INVIO LA MAIL AL RISTORANTE
-        Mail::to('ristorante@mail.it')->send(new NewOrderForRestaurant($new_lead));
+        Mail::to($restaurantEmail)->send(new NewOrderForRestaurant($new_lead));
+
 
         return response()->json([
             'success' => true
