@@ -94,8 +94,8 @@ class OrderController extends Controller
         // SE L'ORDINE È ANDATO A BUON FINE, CREO UN NUOVO "ORDER" NELLA TABELLA "ORDERS" DEL DATABASE
         $newOrder = new Order();
 
-        // INSERISCO DENTRO FORM_DATA->ORDER_STATUS, LO STATO DELL'ORDINE CASUALMENTE SCELTO
-        $form_data['order_status'] = $order_status['In preparazione'];
+        // INSERISCO DENTRO FORM_DATA->ORDER_STATUS LO STATO DELL'ORDINE
+        $form_data['order_status'] = 'In preparazione';
 
         $newOrder->fill($form_data);
 
