@@ -43,7 +43,7 @@
                         <!-- Order Status Form Group -->
                         <div class="form-group my-4">
                             <!-- Status Label -->
-                            <label class="control-label my-2">Nome ristorante *</label>
+                            <label class="control-label my-2">Stato ordine *</label>
                             <!-- Status Select -->
                             <select name="order_status" id="order_status" placeholder="Modifica lo stato dell'ordine" class="form-control @error('order_status') is-invalid @enderror" value="{{ old('order_status') ?? $order->order_status }}" required>
                                 <option value="">Modifica lo stato dell'ordine</option>
