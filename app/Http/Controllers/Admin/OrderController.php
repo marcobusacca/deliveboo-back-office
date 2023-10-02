@@ -143,8 +143,31 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-        return redirect()->back()->with('error', "Operazione non autorizzata");
+        // RECUPERO L'UTENTE ATTUALMENTE AUTENTICATO
+        $user = auth()->user();
+
+        // RECUPERO IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO
+        $restaurant = $user->restaurant;
+
+        // CONTROLLO SE, IL RISTORANTE COLLEGATO ALL'UTENTE ATTUALMENTE AUTENTICATO, POSSIEDE ALMENO UN'ORDINE
+        if(isset($restaurant->orders)){
+
+            // CONTROLLO SE, L'ORDER CHE MI è STATO PASSATO, è UN ORDER APPARTENENTE AL RESTAURANT ATTUALMENTE AUTENTICATO
+            if($restaurant->orders->contains($order)){
+
+                // RITORNO LA EDIT DELL'ORDER
+                return view('admin.orders.edit', compact('order'));
+
+            } else{
+
+                // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+                return redirect()->back()->with('error', "Operazione non autorizzata");
+            }
+
+        } else{
+            // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
+            return redirect()->back()->with('error', "Operazione non autorizzata");
+        }
     }
 
     /**
@@ -156,8 +179,11 @@ class OrderController extends Controller
      */
     public function update(UpdateOrderRequest $request, Order $order)
     {
-        // RIMANDO L'UTENTE NELLA PAGINA DI PARTENZA
-        return redirect()->back()->with('error', "Operazione non autorizzata");
+        $form_data = $request->all();
+
+        $order->update($form_data);
+
+        return redirect()->route('admin.orders.show', compact('order'))->with('message', "Ordine modificato correttamente");
     }
 
     /**

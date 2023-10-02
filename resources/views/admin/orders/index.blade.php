@@ -52,6 +52,10 @@
                                         <a href="{{ route('admin.orders.show', $order) }}" class="products-tools-btn btn btn-info mx-1">
                                             <i class="fas fa-eye"></i>
                                         </a>
+                                        <!-- Restaurant Edit Button -->
+                                        <a href="{{ route('admin.orders.edit', $order) }}" class="btn btn-warning mx-1">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

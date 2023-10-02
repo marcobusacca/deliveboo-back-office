@@ -24,7 +24,13 @@ class UpdateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'order_status' =>  'required',
+        ];
+    }
+
+    public function messages(){
+        return[
+            'order_status.required' =>  'Lo state dell\'ordine è obbligatorio',
         ];
     }
 }

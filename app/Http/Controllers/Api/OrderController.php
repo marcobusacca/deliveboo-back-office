@@ -94,23 +94,8 @@ class OrderController extends Controller
         // SE L'ORDINE È ANDATO A BUON FINE, CREO UN NUOVO "ORDER" NELLA TABELLA "ORDERS" DEL DATABASE
         $newOrder = new Order();
 
-        /*************************************************************************************/
-
-        // CREO L'ARRAY "ORDER_STATUS", CHE CONTIENE GLI STATI CHE PUO AVERE L'ORDINE
-        $order_status = ['In preparazione', 'In consegna', 'Consegnato'];
-
-        // FUNZIONE CHE GENERA UN NUMERO RANDOM TRA QUESTI: 0, 1, 2
-        function randomNumberForOrderStatus() {
-            return rand(0, 2);
-        }
-        
-        // FACCIO GENERARE UN NUMERO RANDOM E LO SALVO SU "ORDER_STATUS_INDEX"
-        $OrderStatusIndex = randomNumberForOrderStatus();
-
         // INSERISCO DENTRO FORM_DATA->ORDER_STATUS, LO STATO DELL'ORDINE CASUALMENTE SCELTO
-        $form_data['order_status'] = $order_status[$OrderStatusIndex];
-
-        /*************************************************************************************/
+        $form_data['order_status'] = $order_status['In preparazione'];
 
         $newOrder->fill($form_data);
 

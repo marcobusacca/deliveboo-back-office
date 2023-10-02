@@ -126,7 +126,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                        <!-- Create Submit Button -->
+                        <!-- Edit Submit Button -->
                         <div class="col-12 d-flex justify-content-center align-items-center my-5">
                             <button type="submit" class="btn btn-warning fw-bold px-5">MODIFICA</button>
                         </div>
