@@ -3,13 +3,6 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <!-- Redirect To Orders List -->
-            <div class="col-12 redirect-back-btn">
-                <a href="{{ route('admin.orders.index') }}" class="bg-black btn btn-dark rounded-5">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Torna alla lista degli ordini</span>
-                </a>
-            </div>
             @if (session('error'))
                 <!-- Operation not Authorized Message -->
                 <div class="col-12 col-lg-6 mt-5">
